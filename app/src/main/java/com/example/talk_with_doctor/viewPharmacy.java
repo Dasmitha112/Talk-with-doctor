@@ -9,15 +9,15 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Logout extends AppCompatActivity {
+public class viewPharmacy extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logout);
+        setContentView(R.layout.activity_view_pharmacy);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
-        bottomNavigationView.setSelectedItemId(R.id.logout);
+        bottomNavigationView.setSelectedItemId(R.id.profile);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
             @Override
@@ -30,17 +30,17 @@ public class Logout extends AppCompatActivity {
                         return true;
 
                     case R.id.logout:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), com.example.talk_with_doctor.MainActivity.class));
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
-
 
                     case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), profileAdmin.class));
+                        startActivity(new Intent(getApplicationContext(), com.example.talk_with_doctor.profileAdmin.class));
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
+
                 }
 
                 return false;

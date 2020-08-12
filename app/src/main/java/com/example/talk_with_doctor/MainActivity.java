@@ -1,17 +1,18 @@
 package com.example.talk_with_doctor;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-public class MainActivity extends AppCompatActivity {
+    private CardView patientCard, doctorCard, pharmacyCard, adminCard;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -19,36 +20,48 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        patientCard = (CardView) findViewById(R.id.generalPatient);
+        doctorCard = (CardView) findViewById(R.id.generalDoctor);
+        pharmacyCard = (CardView) findViewById(R.id.generalPharmacy);
+        adminCard = (CardView) findViewById(R.id.generalAdmin);
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
-        bottomNavigationView.setSelectedItemId(R.id.home);
+        patientCard.setOnClickListener(this);
+        doctorCard.setOnClickListener(this);
+        pharmacyCard.setOnClickListener(this);
+        adminCard.setOnClickListener(this);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.home:
-                        return true;
-
-                    case R.id.logout:
-                        startActivity(new Intent(getApplicationContext(), Logout.class));
-                        finish();
-                        overridePendingTransition(0, 0);
-                        return true;
-
-                    case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), com.example.talk_with_doctor.Profile.class));
-                        finish();
-                        overridePendingTransition(0, 0);
-                        return true;
-                }
-
-                return false;
-            }
-
-        });
     }
 
 
+    @Override
+    public void onClick(View view) {
+        Intent i;
+        switch (view.getId()){
+            /*
+            case R.id.generalPatient:
+                i = new Intent(this, homePatient.class);
+                startActivity(i);
+                break;
 
+            case R.id.generalDoctor:
+                i = new Intent(this, homeDoctor.class);
+                startActivity(i);
+                break;  */
+
+            case R.id.generalPharmacy:
+                i = new Intent(this, requestEmail.class);
+                startActivity(i);
+                break;
+
+            case R.id.generalAdmin:
+                i = new Intent(this, com.example.talk_with_doctor.homeAdmin.class);
+                startActivity(i);
+                break;
+
+            default:
+                break;
+
+        }
+
+    }
 }

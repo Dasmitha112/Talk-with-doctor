@@ -9,12 +9,12 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Profile extends AppCompatActivity {
+public class viewPatient extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_view_patient);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.profile);
@@ -24,18 +24,21 @@ public class Profile extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), com.example.talk_with_doctor.homeAdmin.class));
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.logout:
-                        startActivity(new Intent(getApplicationContext(), Logout.class));
+                        startActivity(new Intent(getApplicationContext(), com.example.talk_with_doctor.MainActivity.class));
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), com.example.talk_with_doctor.profileAdmin.class));
+                        finish();
+                        overridePendingTransition(0, 0);
                         return true;
 
                 }

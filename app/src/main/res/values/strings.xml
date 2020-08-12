@@ -1,3 +1,102 @@
 <resources>
-    <string name="app_name">Talk-with-doctor</string>
+    <string name="app_name">Talk with Doctor</string>
+
+    <string name="btnAddDoctor">Add Doctor</string>
+    <string name="btnAddPharmacy">Add Pharmacy</string>
+    <string name="btnViewPatient">View Patient</string>
+    <string name="btnViewPharmacy">View Pharmacy</string>
+    <string name="btnViewDoctor">View Doctor</string>
+    <string name="btnViewAppointments">View Appointments</string>
+
+    <string name="txtAddDoctor">Add Doctor</string>
+    <string name="txtAddPharmacy">Add Pharmacy</string>
+    <string name="txtViewPatient">View Patient</string>
+    <string name="txtViewDoctor">View Doctor</string>
+    <string name="txtViewPharmacy">View Pharmacy</string>
+
+    <string name="txtAdmin">Admin</string>
+    <string name="btnAdmin">Admin</string>
+
+    <string name="txtPatient">Patient</string>
+    <string name="txtDoctor">Doctor</string>
+    <string name="txtPharmacy">Pharmacy</string>
+
+    <string name="txtAdminProfile">Admin Profile</string>
+
+    <string name="txtId">ID</string>
+    <string name="valIdNum">001</string>
+    <string name="valIdNum1">002</string>
+    <string name="valIdNum2">003</string>
+
+    <string name="txtPerson">Name</string>
+    <string name="valPersonName">Nimal Perera</string>
+    <string name="valPersonName1">Amal Pieris</string>
+    <string name="valPersonName2">Kamal Gamage</string>
+
+    <string name="txtEmail">Email</string>
+    <string name="valEmail">nimal@gmail.com</string>
+    <string name="valEmail1">Amal@gmail.com</string>
+    <string name="valEmail2">Kamal@gmail.com</string>
+
+    <string name="btnUpload">Update</string>
+    <string name="txtSearch">Search here</string>
+
+    <string name="txtDelete">Delete</string>
+    <string name="btnDelete">Delete</string>
+
+    <string name="txtPassword">Password</string>
+    <string name="valPassword">abc123</string>
+
+    <string name="txtAddress">Address</string>
+
+    <string name="txtMobile">Mobile</string>
+    <string name="valMobile">0715555555</string>
+    <string name="valMobile1">0779999999</string>
+    <string name="valMobile2">0713333333</string>
+
+    <string name="txtCategory">Category</string>
+    <string name="valCategory">Neurology</string>
+    <string name="valCategory1">Cardiology</string>
+    <string name="valCategory2">Dermatology</string>
+
+    <string name="txtHospital">Hospital</string>
+    <string name="valHospital">Nawaloka</string>
+    <string name="valHospital1">Asiri</string>
+    <string name="valHospital2">Lanka Hospital</string>
+
+    <string name="txtCity">City</string>
+    <string name="valCity">Kiribathgoda</string>
+    <string name="valCity1">Malabe</string>
+    <string name="valCity2">Kaduwela</string>
+
+    <string name="txtAge">Age</string>
+    <string name="valAge">30</string>
+    <string name="valAge1">35</string>
+    <string name="valAge2">40</string>
+
+    <string name="valPharmacy">MyMed</string>
+    <string name="valPharmacy1">Osu Sala</string>
+    <string name="valPharmacy2">Apco</string>
+
+    <string name="txtTo">To: </string>
+    <string name="txtSubject">Subject</string>
+    <string name="txtRequest">Request</string>
+    <string name="txtRequestEmail">Request Email</string>
+    <string name="txtEmailAddress">admin@gmail.com</string>
+    <string name="txtBack">Back</string>
+
+    <string name="txtMessage">Your details should be send to us via email, by using button provided below.\n\n
+        If you are request as a doctor, please follow latter steps:\n
+        1. Enter your name, address, mobile number, category of specialization, hospital.\n
+        2. Attach your bio data and qualification certificates.\n\n
+
+        If you are request as a pharmacist, please follow latter steps:\n\n
+        1. Enter pharmacy name, city, address, name and mobile number.\n
+        2. Attach registration certificate.\n\n
+
+        Please send the details in a clear manner.
+    </string>
+
+
+
 </resources>
