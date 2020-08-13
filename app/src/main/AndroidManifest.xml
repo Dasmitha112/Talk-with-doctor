@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Profile"></activity>
+        <activity android:name=".registerPharmacy"></activity>
+        <activity android:name=".profilePharmacy" />
+        <activity android:name=".prescriptionPharmacy" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".incomePharmacy" />
+        <activity android:name=".homePharmacy" />
+        <activity android:name=".Profile" />
         <activity android:name=".Logout" />
         <activity android:name=".MainActivity">
             <intent-filter>
