@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Profile"></activity>
+        <activity android:name=".NotificationDoctorActivity"></activity>
+        <activity android:name=".AppoinmentsDoctorActivity" />
+        <activity android:name=".MydetailsDoctorActivity" />
+        <activity android:name=".MyAppoinmentsDoctorActivity" />
+        <activity android:name=".ViewPatientDoctorActivity" />
+        <activity android:name=".HomeDoctorActivity" />
+        <activity android:name=".Profile" />
         <activity android:name=".Logout" />
         <activity android:name=".MainActivity">
             <intent-filter>
