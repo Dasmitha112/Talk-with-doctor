@@ -59,7 +59,8 @@
     <string name="p_Password">Password :</string>
     <string name="patientNotifications">Notifications</string>
     <string name="OrderMedi_topic">Order Medicines</string>
-    <string name="pharmacyName_insert">Pharmacy Name :</string>
+    <string name="pharmacyName_insert">Pharmacy Name</string>
+    <string name="mobileN">Mobile Number</string>
     <string name="upload">Upload Prescription :</string>
     <string name="request_order_btn">Request Order</string>
     <string name="bookings_topic">Bookings</string>
