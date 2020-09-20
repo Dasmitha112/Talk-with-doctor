@@ -77,7 +77,14 @@
             app:layout_constraintTop_toTopOf="@+id/guideline15">
 
 
-            <TableLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recyclerviewPharmacy"/>
+
+
+
+            <!--<TableLayout
                 android:id="@+id/table"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -306,7 +313,7 @@
 
                 </TableRow>
 
-            </TableLayout>
+            </TableLayout>-->
 
         </LinearLayout>
 

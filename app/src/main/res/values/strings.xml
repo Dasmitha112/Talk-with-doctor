@@ -41,6 +41,8 @@
     <string name="btnUpload">Update</string>
     <string name="txtSearch">Search here</string>
 
+    <string name="btnAdd">Add</string>
+
     <string name="txtDelete">Delete</string>
     <string name="btnDelete">Delete</string>
 
