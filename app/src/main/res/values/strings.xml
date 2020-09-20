@@ -17,6 +17,7 @@
     <string name="pemail">Email</string>
     <string name="pcity">City</string>
     <string name="pupdate">Update</string>
+    <string name="read">Read</string>
     <string name="mincome">Monthly Income</string>
     <string name="pview">Prescription View</string>
     <string name="month">Month</string>
@@ -45,4 +46,25 @@
     <string name="pha">Pharmacy</string>
     <string name="submit">Submit</string>
     <string name="view">View</string>
+    <string name="insertIncome">Income Insert page</string>
+    <string name="Insert">Insert Details</string>
+
+    <string name="txtTo">To: </string>
+    <string name="txtSubject">Subject</string>
+    <string name="txtRequest">Request</string>
+    <string name="txtRequestEmail">Request Email</string>
+    <string name="txtEmailAddress">admin@gmail.com</string>
+    <string name="txtBack">Back</string>
+
+    <string name="txtMessage">Your details should be send to us via email, by using button provided below.\n\n
+        If you are request as a doctor, please follow latter steps:\n
+        1. Enter your name, address, mobile number, category of specialization, hospital.\n
+        2. Attach your bio data and qualification certificates.\n\n
+
+        If you are request as a pharmacist, please follow latter steps:\n\n
+        1. Enter pharmacy name, city, address, name and mobile number.\n
+        2. Attach registration certificate.\n\n
+
+        Please send the details in a clear manner.
+    </string>
 </resources>

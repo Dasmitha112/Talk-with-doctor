@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     tools:context=".profilePharmacy">
 
 
@@ -58,7 +57,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline10"
             android:layout_width="wrap_content"
@@ -107,7 +105,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
 
-            app:layout_constraintGuide_end="108dp" />
+            app:layout_constraintGuide_end="169dp" />
 
         <TextView
             android:id="@+id/textView4"
@@ -115,15 +113,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="28dp"
             android:text="@string/pid"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/id"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline10" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView0"
@@ -131,15 +128,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="28dp"
             android:text="@string/pname"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline11" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView12"
@@ -147,15 +143,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="28dp"
             android:text="@string/pmobile"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/mobile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline12" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView51"
@@ -163,15 +158,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="28dp"
             android:text="@string/paddress"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/address"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline13" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView14"
@@ -179,15 +173,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="28dp"
             android:text="@string/pemail"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline14" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView15"
@@ -195,15 +188,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="28dp"
             android:text="@string/pcity"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/city"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline15" />
+            app:layout_constraintStart_toStartOf="parent" />
 
 
         <Button
@@ -216,13 +208,12 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.46"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline16"
-            app:layout_constraintVertical_bias="0.106" />
+            app:layout_constraintVertical_bias="0.515" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName1"
+            android:id="@+id/id"
             android:layout_width="220dp"
             android:layout_height="35dp"
             android:layout_marginTop="12dp"
@@ -235,7 +226,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/name"
             android:layout_width="220dp"
             android:layout_height="35dp"
             android:layout_marginTop="12dp"
@@ -248,7 +239,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/mobile"
             android:layout_width="220dp"
             android:layout_height="35dp"
             android:layout_marginTop="12dp"
@@ -262,7 +253,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName4"
+            android:id="@+id/address"
             android:layout_width="220dp"
             android:layout_height="35dp"
             android:layout_marginTop="12dp"
@@ -276,7 +267,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline13" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/email"
             android:layout_width="220dp"
             android:layout_height="35dp"
             android:layout_marginTop="12dp"
@@ -290,7 +281,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline14" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName6"
+            android:id="@+id/city"
             android:layout_width="220dp"
             android:layout_height="35dp"
             android:layout_marginTop="16dp"
@@ -300,8 +291,25 @@
 
             android:inputType="textPersonName"
             android:textColor="#0E0E0E"
+            app:layout_constraintBottom_toTopOf="@+id/guideline16"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline15" />
+            app:layout_constraintTop_toTopOf="@+id/guideline15"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="107dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="20dp"
+            android:background="#438F46"
+            android:text="@string/read"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline16"
+            app:layout_constraintVertical_bias="0.017" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
