@@ -1,3 +1,93 @@
 <resources>
-    <string name="app_name">Talk-with-doctor</string>
+    <string name="app_name">Talk with Doctor</string>
+    <string name="new_appointment_btn">New Doctor Appointment</string>
+    <string name="view_bookings_btn">View Bookings</string>
+    <string name="order_medicine_btn">Order Medicines</string>
+    <string name="user_topic_patient">Patient</string>
+    <string name="find_doctor">Find Your Doctor</string>
+    <string name="doctor_name_find">Doctor Name :</string>
+    <string name="docNameFind">Doctor Name</string>
+    <string name="specializationFind">Specialization :</string>
+
+    <string-array name="specializationList">
+        <item>Any</item>
+        <item>Allergy and Asthma Specialist</item>
+        <item>Chest Physician</item>
+        <item>Child and Adolescent Psychology</item>
+        <item>Counsellor</item>
+        <item>Dental Surgeon</item>
+        <item>General</item>
+        <item>Neurosurgeon</item>
+        <item>Physician</item>
+        <item>Surgeon</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="hospitalFind">Hospital :</string>
+    <string-array name="hospitalList">
+        <item>Any</item>
+        <item>Asiri Hospital,Colombo</item>
+        <item>Durdans Hospital,Colombo</item>
+        <item>Hemas Hospital,Wattala</item>
+        <item>Lanka Hospital,Colombo</item>
+        <item>Nawaloka Hospital,Colombo</item>
+        <item>Nevil Fernando Hospital,Malabe</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="appointmentDate">Date :</string>
+    <string name="date_input">01-08-2020</string>
+    <string name="search_btn">Search</string>
+    <string name="doctor_details_topic">Doctor Details</string>
+    <string name="request_appointment_btn">Request an Appointment</string>
+    <string name="patientDetails_topic">Patient Details</string>
+    <string name="pName_input">Name :</string>
+    <string name="pAge_input">Age :</string>
+    <string name="pPhone_input">Phone :</string>
+    <string name="pEmail_input">Email :</string>
+    <string name="pId_input">National ID :</string>
+    <string name="send_request_btn">Send Request</string>
+    <string name="myDetails_topic">My Details</string>
+    <string name="pName">Name :</string>
+    <string name="pID">Patient ID :</string>
+    <string name="pAddress">Address :</string>
+    <string name="pMobile">Mobile :</string>
+    <string name="pEmail">Email :</string>
+    <string name="P_update_btn">Update</string>
+    <string name="signup_patient">Sign Up</string>
+    <string name="pSignup_btn">Sign Up</string>
+    <string name="p_Password">Password :</string>
+    <string name="patientNotifications">Notifications</string>
+    <string name="OrderMedi_topic">Order Medicines</string>
+    <string name="pharmacyName_insert">Pharmacy Name</string>
+    <string name="mobileN">Mobile Number</string>
+    <string name="upload">Upload Prescription :</string>
+    <string name="request_order_btn">Request Order</string>
+    <string name="bookings_topic">Bookings</string>
+    <string name="table_col1">Doctor Name</string>
+    <string name="table_col2">Date</string>
+    <string name="table_col3">Time</string>
+    <string name="table_col4">Hospital</string>
+    <string name="sample_doc_name">Dr. Colvin Samarasinghe</string>
+    <string name="sampale_date">20-08-2020</string>
+    <string name="sample_time">5 p.m - 8 p.m.</string>
+    <string name="sample_hos">Nawaloka Hospital,Colombo</string>
+    <string name="sample2_doc">Dr.Perera</string>
+    <string name="sample2_date">18-08-2020</string>
+    <string name="sampl2_time">4 p.m.</string>
+    <string name="sample2_hos">Asiri Hospital</string>
+    <string name="sample3_doc">Dr.Silva</string>
+    <string name="Sample3_date">10-08-2020</string>
+    <string name="sample3_time">2 p.m. - 4 p.m.</string>
+    <string name="sample3_hos">Nawaloka Hospital</string>
+    <string name="sample_specialization">Neurosurgeon</string>
+    <string name="sample_noti1">Dr.Colvin Samarasinghe has confirmed your request appoinment</string>
+    <string name="sample_noti2">Asiri pharmacy has confirmed you medicine order</string>
+    <string name="Sample_noti3">Sethsiri pharmacy has ignored your medicine order</string>
+    <string name="sample_Pid">0012</string>
+    <string name="Sample_pName">H.S. Adikari</string>
+    <string name="sample_pAddress">No.12, New road, Kandy</string>
+    <string name="sample_pMobile">0778954123</string>
+    <string name="sample_pEmail">adikari@gmail.com</string>
+    <string name="choose_photo">Choose Photo</string>
 </resources>
