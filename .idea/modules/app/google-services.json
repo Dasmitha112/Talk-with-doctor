@@ -15,6 +15,7 @@
       },
       "oauth_client": [
         {
+<<<<<<< HEAD
           "client_id": "306656535626-8eeit284qi2gqsaojqffrr8ora79ufq6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -31,6 +32,8 @@
           }
         },
         {
+=======
+>>>>>>> Kaveena_Pharmacy
           "client_id": "306656535626-uduerg5e367v3ka2hqqvpt1qsuabf4f4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
