@@ -16,6 +16,7 @@
       "oauth_client": [
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
           "client_id": "306656535626-8eeit284qi2gqsaojqffrr8ora79ufq6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -24,6 +25,8 @@
           }
         },
         {
+=======
+>>>>>>> origin/Umesh_Doctor
           "client_id": "306656535626-sj2knjsl9d4017ftuvfvagujeurepbkn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -32,8 +35,11 @@
           }
         },
         {
+<<<<<<< HEAD
 =======
 >>>>>>> Kaveena_Pharmacy
+=======
+>>>>>>> origin/Umesh_Doctor
           "client_id": "306656535626-uduerg5e367v3ka2hqqvpt1qsuabf4f4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
