@@ -33,7 +33,7 @@ public class homePatient extends AppCompatActivity {
                         return true;
 
                     case R.id.logout:
-                        startActivity(new Intent(getApplicationContext(), Logout.class));
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         finish();
                         overridePendingTransition(0, 0);
                         return true;

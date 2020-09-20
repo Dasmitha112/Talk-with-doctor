@@ -314,7 +314,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colorAdminPrimary"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:text="@string/btnAdd"
                 app:layout_constraintBottom_toTopOf="@+id/guideline9"
                 app:layout_constraintEnd_toEndOf="parent"

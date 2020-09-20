@@ -4,8 +4,8 @@
     android:layout_height="?attr/actionBarSize"
     xmlns:app="http://schemas.android.com/apk/res-auto"
                                    
-    android:background="@color/colorAdminPrimary"
-    android:background="@color/colorPatientPrimary"
+    android:background="#0288db">
+    <!--android:background="@color/colorPatientPrimary" -->
     android:id="@+id/toolbarCustom"
     app:popupTheme="@style/AppTheme">
 

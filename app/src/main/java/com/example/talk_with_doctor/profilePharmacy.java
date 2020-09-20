@@ -75,13 +75,13 @@ public class profilePharmacy extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), homePharmacy.class));
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.logout:
-                        startActivity(new Intent(getApplicationContext(), Logout.class));
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         finish();
                         overridePendingTransition(0, 0);
                         return true;

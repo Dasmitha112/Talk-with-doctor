@@ -23,7 +23,7 @@
 
         app:itemBackground="@color/colorAdminAccent"
 
-        app:itemBackground="@color/colorPatientAccent"
+
 
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"

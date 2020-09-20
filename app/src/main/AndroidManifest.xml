@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
-    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:allowBackup="true"
@@ -30,8 +30,7 @@
         <activity android:name=".addDoctor" />
         <activity android:name=".profileAdmin" />
         <activity android:name=".Logout" />
-        <activity android:name=".Bookings">
-        <activity android:name=".orderMedicines" />
+        <activity android:name=".Bookings" />
         <activity android:name=".notificationsPatient" />
         <activity android:name=".SignUpPatient" />
         <activity android:name=".patientDetails" />
@@ -39,14 +38,13 @@
         <activity android:name=".newAppointment" />
         <activity android:name=".profilePatient" />
         <activity android:name=".homePatient" />
-        <activity android:name=".NotificationDoctorActivity">
+        <activity android:name=".NotificationDoctorActivity" />
         <activity android:name=".AppoinmentsDoctorActivity" />
-        <activity android:name=".MydetailsDoctorActivity" />
         <activity android:name=".MyAppoinmentsDoctorActivity" />
         <activity android:name=".ViewPatientDoctorActivity" />
         <activity android:name=".HomeDoctorActivity" />
         <activity android:name=".Profile" />
-        <activity android:name=".incomeInsert">
+        <activity android:name=".incomeInsert" />
         <activity android:name=".registerPharmacy" />
         <activity android:name=".profilePharmacy" />
         <activity android:name=".prescriptionPharmacy" />

@@ -23,16 +23,16 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
+/*import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
-import com.google.firebase.storage.UploadTask;
+import com.google.firebase.storage.UploadTask;*/
 
 
 public class orderMedicines extends AppCompatActivity {
 
-    private static final int PICK_IMAGE_REQUEST =1;
+   /* private static final int PICK_IMAGE_REQUEST =1;
 
     private Button mButtonChooseImage;
     private Button mButtonUpload;
@@ -45,8 +45,8 @@ public class orderMedicines extends AppCompatActivity {
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
 
-    private StorageTask mUploadTask;
-
+    private StorageTask mUploadTask;*/
+/*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,7 +126,7 @@ public class orderMedicines extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-           && data != null && data.getData() !=null){
+                && data != null && data.getData() !=null){
             mImageUri = data.getData();
 
 
@@ -161,5 +161,5 @@ public class orderMedicines extends AppCompatActivity {
                         }
                     });
         }
-    }
+    }*/
 }

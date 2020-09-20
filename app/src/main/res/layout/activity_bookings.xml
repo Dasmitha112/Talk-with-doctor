@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/navigation"
-        app:itemBackground="@color/grey"
+        app:itemBackground="@color/colorAdminAccent"
         app:itemTextColor="#9F2C2B2B"
         app:itemIconTint="#9F2C2B2B"
         app:menu="@menu/menu_bottom"

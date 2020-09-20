@@ -37,10 +37,7 @@ public class Logout extends AppCompatActivity {
 
 
                     case R.id.profile:
-
-              
-                        startActivity(new Intent(getApplicationContext(), com.example.talk_with_doctor.profilePatient.class));
-
+                        startActivity(new Intent(getApplicationContext(), profileAdmin.class));
                         finish();
                         overridePendingTransition(0, 0);
                         return true;

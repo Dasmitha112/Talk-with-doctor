@@ -80,12 +80,12 @@
     <string name="valPharmacy1">Osu Sala</string>
     <string name="valPharmacy2">Apco</string>
 
-    <string name="txtTo">To: </string>
+    <!-- <string name="txtTo">To: </string>
     <string name="txtSubject">Subject</string>
     <string name="txtRequest">Request</string>
     <string name="txtRequestEmail">Request Email</string>
     <string name="txtEmailAddress">admin@gmail.com</string>
-    <string name="txtBack">Back</string>
+    <string name="txtBack">Back</string> -->
 
     <string name="txtMessage">Your details should be send to us via email, by using button provided below.\n\n
         If you are request as a doctor, please follow latter steps:\n
@@ -136,8 +136,7 @@
         <item>Nevil Fernando Hospital,Malabe</item>
         <item>Other</item>
     </string-array>
-    
-    <string name="app_name">Talk with Doctor</string>
+
     <string name="logo_new">logo_new</string>
     <string name="username_login">Username</string>
     <string name="password_login">Password</string>
