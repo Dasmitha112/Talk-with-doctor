@@ -75,33 +75,19 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="644dp" />
 
-        <Button
-            android:id="@+id/my_details"
-            android:layout_width="154dp"
-            android:layout_height="107dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginLeft="28dp"
-            android:layout_marginTop="40dp"
-            android:background="#007BC8"
-            android:text="@string/my_details"
-            android:textColor="#FFFFFF"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
         <Button
             android:id="@+id/ViewPatient"
             android:layout_width="152dp"
             android:layout_height="107dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="16dp"
             android:background="#007BC8"
             android:text="@string/view_patient"
             android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.794"
-            app:layout_constraintStart_toEndOf="@+id/my_details"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
         <Button
             android:id="@+id/Appoinment"
@@ -109,40 +95,43 @@
             android:layout_height="105dp"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:background="#007bc8"
             android:text="@string/appoinment"
             android:textColor="#FFFFFF"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/my_appoinment"
             android:layout_width="155dp"
             android:layout_height="106dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:background="#007bc8"
             android:text="@string/my_appoinment"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.833"
             app:layout_constraintStart_toEndOf="@+id/Appoinment"
-            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
         <Button
             android:id="@+id/Notification"
             android:layout_width="157dp"
             android:layout_height="106dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="136dp"
-            android:layout_marginRight="136dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
             android:background="#007bc8"
             android:text="@string/notification"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline4" />
+            app:layout_constraintHorizontal_bias="0.86"
+            app:layout_constraintStart_toEndOf="@+id/ViewPatient"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
         <View
             android:layout_width="370dp"

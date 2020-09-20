@@ -102,5 +102,7 @@
     <string name="SpecialisationInput"></string>
     <string name="CheckReg">I certify that the above Information.</string>
     <string name="SubmitReg">Submit</string>
+    <string name="Enter">Click</string>
+    <string name="edit_massage">edit_massage</string>
 
 </resources>
