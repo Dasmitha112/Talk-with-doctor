@@ -39,6 +39,20 @@
         <activity android:name=".newAppointment" />
         <activity android:name=".profilePatient" />
         <activity android:name=".homePatient" />
+        <activity android:name=".NotificationDoctorActivity">
+        <activity android:name=".AppoinmentsDoctorActivity" />
+        <activity android:name=".MydetailsDoctorActivity" />
+        <activity android:name=".MyAppoinmentsDoctorActivity" />
+        <activity android:name=".ViewPatientDoctorActivity" />
+        <activity android:name=".HomeDoctorActivity" />
+        <activity android:name=".Profile" />
+        <activity android:name=".incomeInsert">
+        <activity android:name=".registerPharmacy" />
+        <activity android:name=".profilePharmacy" />
+        <activity android:name=".prescriptionPharmacy" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".incomePharmacy" />
+        <activity android:name=".homePharmacy" />
         <activity android:name=".MainActivity"></activity>
 
         <meta-data
