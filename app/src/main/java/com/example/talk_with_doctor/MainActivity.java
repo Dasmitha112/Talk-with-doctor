@@ -7,6 +7,8 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,11 +16,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private CardView patientCard, doctorCard, pharmacyCard, adminCard;
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private Button button ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         patientCard = (CardView) findViewById(R.id.generalPatient);
         doctorCard = (CardView) findViewById(R.id.generalDoctor);
@@ -58,6 +62,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(i);
                 break;
 
+        button = (Button)findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHome();
+            }
+        });
+
+        button = (Button)findViewById(R.id.button2);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSignup();
+            }
+        });
+    }
+
+    public void openHome() {
+        Intent intent = new Intent(this, homePatient.class);
+        startActivity(intent);
+    }
+
+    public void openSignup(){
+        Intent intent = new Intent(this, SignUpPatient.class);
+        startActivity(intent);
+    }
+
+
             default:
                 break;
 
@@ -65,3 +97,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 }
+

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.talk_with_doctor">
+    
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,6 +14,7 @@
         android:roundIcon="@drawable/logocircle"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".introduction">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +30,15 @@
         <activity android:name=".addDoctor" />
         <activity android:name=".profileAdmin" />
         <activity android:name=".Logout" />
+        <activity android:name=".Bookings">
+        <activity android:name=".orderMedicines" />
+        <activity android:name=".notificationsPatient" />
+        <activity android:name=".SignUpPatient" />
+        <activity android:name=".patientDetails" />
+        <activity android:name=".doctorDetails" />
+        <activity android:name=".newAppointment" />
+        <activity android:name=".profilePatient" />
+        <activity android:name=".homePatient" />
         <activity android:name=".MainActivity"></activity>
 
         <meta-data
