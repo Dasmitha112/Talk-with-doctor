@@ -31,6 +31,7 @@
         <activity android:name=".profileAdmin" />
         <activity android:name=".Logout" />
         <activity android:name=".Bookings" />
+        <activity android:name=".orderMedicines" />
         <activity android:name=".notificationsPatient" />
         <activity android:name=".SignUpPatient" />
         <activity android:name=".patientDetails" />
