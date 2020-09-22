@@ -136,7 +136,6 @@ public class viewDoctor extends AppCompatActivity  {
         builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
                 Query query = databaseReference.orderByChild("id").equalTo(id);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ public class profileAdmin extends AppCompatActivity {
     Button btnUpdate;
     DatabaseReference dbRef;
     FirebaseDatabase firebaseDatabase;
+    Admin adm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class profileAdmin extends AppCompatActivity {
         editTxtEmail = findViewById(R.id.editTxtEmail);
 
         btnUpdate = findViewById(R.id.btnUpdate);
+
+        adm = new Admin();
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.profile);
@@ -63,14 +67,46 @@ public class profileAdmin extends AppCompatActivity {
             }
 
         });
+
+
+        //Update
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference upRef = FirebaseDatabase.getInstance().getReference().child("Admin").child("adm1");
+                upRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                adm.setID(editTxtId.getText().toString().trim());
+                                adm.setName(editTxtName.getText().toString().trim());
+                                adm.setEmail(editTxtEmail.getText().toString().trim());
+
+                                dbRef = FirebaseDatabase.getInstance().getReference().child("Admin").child("adm1");
+                                dbRef.setValue(adm);
+
+                                Toast.makeText(getApplicationContext(), "Data updated successfully", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+            }
+        });
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        DatabaseReference readRef = FirebaseDatabase.getInstance().getReference().child("Admin");
-        readRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        //Retrieve
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Admin").child("adm1");
+        dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.hasChildren()) {
@@ -89,4 +125,5 @@ public class profileAdmin extends AppCompatActivity {
         });
 
     }
+
 }

@@ -37,6 +37,14 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     }
 
+    public void setPatientData(Context context, String name, String email, String address, int mobile, String password){
+        TextView textView = itemView.findViewById(R.id.textview_row);
+
+        textView.setText("Name: " + name + "\n" + "Email: " + email + "\n" + "Address: " + address + "\n" +
+                "Mobile: " + mobile + "\n" + "Password: " + password);
+
+    }
+
     private ViewHolder.Clicklistener mClicklistener;
 
     public interface Clicklistener{
