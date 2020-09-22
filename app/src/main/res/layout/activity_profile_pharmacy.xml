@@ -123,9 +123,9 @@
             android:layout_marginLeft="30dp"
             android:text="@string/pid"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBaseline_toBaselineOf="@+id/id"
+            app:layout_constraintBaseline_toBaselineOf="@+id/ID"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
@@ -138,7 +138,7 @@
             android:layout_marginLeft="30dp"
             android:text="@string/pname"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/name"
             app:layout_constraintEnd_toEndOf="parent"
@@ -153,7 +153,7 @@
             android:layout_marginLeft="30dp"
             android:text="@string/pmobile"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/mobile"
             app:layout_constraintEnd_toEndOf="parent"
@@ -168,7 +168,7 @@
             android:layout_marginLeft="30dp"
             android:text="@string/paddress"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/address"
             app:layout_constraintEnd_toEndOf="parent"
@@ -183,7 +183,7 @@
             android:layout_marginLeft="30dp"
             android:text="@string/pemail"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/email"
             app:layout_constraintEnd_toEndOf="parent"
@@ -198,7 +198,7 @@
             android:layout_marginLeft="30dp"
             android:text="@string/pcity"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/city"
             app:layout_constraintEnd_toEndOf="parent"
@@ -219,87 +219,95 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline16"
-            app:layout_constraintVertical_bias="0.287" />
+            app:layout_constraintVertical_bias="0.465" />
 
         <EditText
-            android:id="@+id/id"
-            android:layout_width="220dp"
-            android:layout_height="35dp"
+            android:id="@+id/ID"
+            android:layout_width="209dp"
+            android:layout_height="40dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:textColor="#0E0E0E"
+
+            android:textColor="#9F2C2B2B"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
         <EditText
             android:id="@+id/name"
-            android:layout_width="220dp"
-            android:layout_height="35dp"
+            android:layout_width="209dp"
+            android:layout_height="40dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:textColor="#0E0E0E"
+
+            android:textColor="#9F2C2B2B"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
         <EditText
             android:id="@+id/mobile"
-            android:layout_width="220dp"
-            android:layout_height="35dp"
+            android:layout_width="209dp"
+            android:layout_height="40dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:ems="10"
-
             android:inputType="textPersonName"
-            android:textColor="#0E0E0E"
+
+            android:textColor="#9F2C2B2B"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
         <EditText
             android:id="@+id/address"
-            android:layout_width="220dp"
-            android:layout_height="35dp"
+            android:layout_width="209dp"
+            android:layout_height="40dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:ems="10"
-
             android:inputType="textPersonName"
-            android:textColor="#0E0E0E"
+
+            android:textColor="#9F2C2B2B"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline13" />
 
         <EditText
             android:id="@+id/email"
-            android:layout_width="220dp"
-            android:layout_height="35dp"
+            android:layout_width="209dp"
+            android:layout_height="40dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:ems="10"
-
             android:inputType="textPersonName"
-            android:textColor="#0E0E0E"
+
+            android:textColor="#9F2C2B2B"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline14" />
 
         <EditText
             android:id="@+id/city"
-            android:layout_width="220dp"
-            android:layout_height="35dp"
+            android:layout_width="209dp"
+            android:layout_height="40dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:ems="10"
-
             android:inputType="textPersonName"
-            android:textColor="#0E0E0E"
+
+            android:textColor="#9F2C2B2B"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline15"
