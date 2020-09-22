@@ -198,8 +198,8 @@
     <string name="DoctorIDInput">001</string>
     <string name="DoctorNametext">Name</string>
     <string name="DoctorNameInput">Dr. K.D. Attapattu</string>
-    <string name="DoctorAddress">Address</string>
-    <string name="DoctorAddressInput">Nugegoda</string>
+    <string name="DoctorHos">Hospital</string>
+    <string name="DoctorHosInput">Nawaloka</string>
     <string name="DoctorMobile">Mobile</string>
     <string name="DoctorMobileInput">0715672662</string>
     <string name="DoctorCategory">Specalication</string>

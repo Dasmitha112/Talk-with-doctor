@@ -104,13 +104,13 @@
             app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
         <TextView
-            android:id="@+id/DoctorAddressReg"
+            android:id="@+id/DoctorHospital"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="32dp"
-            android:text="@string/DoctorAddress"
+            android:text="@string/DoctorHospital"
             android:textColor="#000000"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -189,16 +189,16 @@
             app:layout_constraintStart_toEndOf="@+id/DoctorNametext" />
 
         <EditText
-            android:id="@+id/DoctorAddressInput"
+            android:id="@+id/DoctorHosInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginLeft="100dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/DoctorAddressInput"
-            app:layout_constraintBaseline_toBaselineOf="@+id/DoctorAddressReg"
-            app:layout_constraintStart_toEndOf="@+id/DoctorAddressReg" />
+            android:text="@string/DoctorHosInput"
+            app:layout_constraintBaseline_toBaselineOf="@+id/DoctorHospital"
+            app:layout_constraintStart_toEndOf="@+id/DoctorHospital" />
 
         <EditText
             android:id="@+id/DoctorMobileInput"
