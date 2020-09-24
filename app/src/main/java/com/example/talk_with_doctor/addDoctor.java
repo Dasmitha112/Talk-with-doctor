@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class addDoctor extends AppCompatActivity {
 
-    EditText editTxtId, editTxtName, editTxtPassword, editTxtMobile, editTxtEmail, editTxtCategory, editTxtHospital;
+    EditText editTxtId, editTxtName, editTxtPassword, editTxtMobile, editTxtEmail, editTxtCategory, editTxtHospital, editTxtDateTime;
     Button btnAdd;
     DatabaseReference dbRef;
     Doctor doc;
@@ -36,6 +36,7 @@ public class addDoctor extends AppCompatActivity {
         editTxtEmail = findViewById(R.id.editTxtEmail);
         editTxtCategory = findViewById(R.id.editTxtCategory);
         editTxtHospital = findViewById(R.id.editTxtHospital);
+        editTxtDateTime = findViewById(R.id.editTxtDateAndTime);
 
         btnAdd = findViewById(R.id.btnAdd);
 
@@ -60,6 +61,8 @@ public class addDoctor extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Please enter Category", Toast.LENGTH_SHORT).show();
                     else if(TextUtils.isEmpty(editTxtHospital.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter Hospital", Toast.LENGTH_SHORT).show();
+                    else if(TextUtils.isEmpty(editTxtDateTime.getText().toString()))
+                        Toast.makeText(getApplicationContext(), "Please enter Date and Time", Toast.LENGTH_SHORT).show();
                     else{
                         doc.setID(editTxtId.getText().toString().trim());
                         doc.setName(editTxtName.getText().toString().trim());
@@ -68,6 +71,7 @@ public class addDoctor extends AppCompatActivity {
                         doc.setEmail(editTxtEmail.getText().toString().trim());
                         doc.setCategory(editTxtCategory.getText().toString().trim());
                         doc.setHospital(editTxtHospital.getText().toString().trim());
+                        doc.setDateTime(editTxtDateTime.getText().toString().trim());
 
                         dbRef.push().setValue(doc);
 
@@ -121,6 +125,7 @@ public class addDoctor extends AppCompatActivity {
         editTxtEmail.setText("");
         editTxtCategory.setText("");
         editTxtHospital.setText("");
+        editTxtDateTime.setText("");
 
     }
 }

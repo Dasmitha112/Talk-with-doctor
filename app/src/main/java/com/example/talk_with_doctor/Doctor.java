@@ -8,6 +8,7 @@ public class Doctor {
     private String email;
     private String category;
     private String hospital;
+    private String dateTime;
 
     //constructor
     public Doctor() {
@@ -68,5 +69,13 @@ public class Doctor {
 
     public void setHospital(String hospital) {
         this.hospital = hospital;
+    }
+
+    public String getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
 }

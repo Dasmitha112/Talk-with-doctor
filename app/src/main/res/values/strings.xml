@@ -80,6 +80,8 @@
     <string name="valPharmacy1">Osu Sala</string>
     <string name="valPharmacy2">Apco</string>
 
+    <string name="txtDateAndTimeBold">Date and Time</string>
+
     <!-- <string name="txtTo">To: </string>
     <string name="txtSubject">Subject</string>
     <string name="txtRequest">Request</string>

@@ -21,11 +21,11 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    public void setData(Context context, String ID, String name, String password, int mobile, String email, String category, String hospital){
+    public void setData(Context context, String ID, String name, String password, int mobile, String email, String category, String hospital, String dateTime){
        TextView textView = itemView.findViewById(R.id.textview_row);
 
         textView.setText("ID: " + ID + "\n" + "Name: " + name + "\n" + "Password: " + password + "\n" + "Mobile: " + mobile + "\n" +
-                "Email: " + email + "\n" + "Category: " + category + "\n" + "Hospital: " + hospital);
+                "Email: " + email + "\n" + "Category: " + category + "\n" + "Hospital: " + hospital + "\n" + "Date and Time: " + dateTime);
 
     }
 

@@ -100,7 +100,7 @@ public class viewDoctor extends AppCompatActivity  {
                     @Override
                     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Doctor model) {
                         holder.setData(getApplicationContext(), model.getID(), model.getName(), model.getPassword(), model.getMobile(),
-                                model.getEmail(), model.getCategory(), model.getHospital());
+                                model.getEmail(), model.getCategory(), model.getHospital(), model.getDateTime());
 
                         holder.setOnClickListener(new ViewHolder.Clicklistener() {
                             @Override
