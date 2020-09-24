@@ -93,7 +93,7 @@ public class viewPatient extends AppCompatActivity {
                     @Override
                     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Patient model) {
                         holder.setPatientData(getApplicationContext(), model.getName(), model.getEmail(),
-                                model.getAddress(), Integer.parseInt(model.getMobile()), model.getPassword());
+                                model.getUsername(), Integer.parseInt(model.getMobile()), model.getPassword());
 
                     }
 

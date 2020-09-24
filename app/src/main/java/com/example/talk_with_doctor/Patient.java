@@ -3,7 +3,7 @@ package com.example.talk_with_doctor;
 public class Patient {
     private String name;
     private String email;
-    private String address;
+    private String username;
     private String mobile;
     private String password;
 
@@ -26,12 +26,12 @@ public class Patient {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setUsername(String address) {
+        this.username = address;
     }
 
     public String getMobile() {

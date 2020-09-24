@@ -59,11 +59,11 @@
             app:layout_constraintGuide_begin="405dp" />
 
         <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="465dp" />
+            android:id="@+id/guideline19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="465dp" />
 
         <TextView
             android:id="@+id/txtAdmin"
@@ -109,10 +109,9 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/dName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sample_doc_name"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="25sp"
@@ -123,10 +122,9 @@
             app:layout_constraintTop_toTopOf="@+id/guideline14" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/special"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sample_specialization"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -137,10 +135,9 @@
             app:layout_constraintTop_toTopOf="@+id/guideline15" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/hospital"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sample_hos"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -151,10 +148,9 @@
             app:layout_constraintTop_toTopOf="@+id/guideline16" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sampale_date"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -165,10 +161,9 @@
             app:layout_constraintTop_toTopOf="@+id/guideline17" />
 
         <TextView
-            android:id="@+id/textView26"
+            android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sample_time"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="18sp"

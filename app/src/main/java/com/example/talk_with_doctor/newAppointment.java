@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,17 +53,37 @@ public class newAppointment extends AppCompatActivity {
 
         });
 
-        button = (Button)findViewById(R.id.search_btn);
+        button = findViewById(R.id.search_btn);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                opendoctorDetails();
+                sendData();
             }
         });
     }
 
-    public void opendoctorDetails() {
+    public void sendData(){
+
         Intent intent = new Intent(this, doctorDetails.class);
+
+        EditText dName = (EditText)findViewById(R.id.docName);
+        Spinner specialization = findViewById(R.id.specialization);
+        Spinner hospital = findViewById(R.id.hospital);
+        EditText date = (EditText)findViewById(R.id.date);
+
+        String Name = dName.getText().toString();
+        String special = specialization.getSelectedItem().toString();
+        String hos = hospital.getSelectedItem().toString();
+        String Date = date.getText().toString();
+
+        intent.putExtra("DName",Name);
+        intent.putExtra("specialization",special);
+        intent.putExtra("hospital",hos);
+        intent.putExtra("date",Date);
+
         startActivity(intent);
     }
+
+
 }

@@ -5,15 +5,37 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class doctorDetails extends AppCompatActivity {
 
     Button button;
+    TextView name;
+    TextView specialization;
+    TextView hospital;
+    TextView date;
+    TextView time;
+    DatabaseReference readRef;
+    String dName;
+    String category;
+    String dHospital;
+
+    String  docName;
+    String docId;
+    String dateTime;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,18 +72,73 @@ public class doctorDetails extends AppCompatActivity {
             }
 
         });
+        //get data from intent
+        Intent intent = getIntent();
+        dName= intent.getStringExtra("DName");
+        category=intent.getStringExtra("specialization");
+        dHospital = intent.getStringExtra("hospital");
 
-        button = (Button)findViewById(R.id.requestApp_btn);
+
+        //capturing views
+        name = findViewById(R.id.dName);
+        specialization = findViewById(R.id.special);
+        hospital = findViewById(R.id.hospital);
+        date = findViewById(R.id.date);
+        time = findViewById(R.id.time);
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+
+        Query query = FirebaseDatabase.getInstance().getReference("Doctor").child("-MHyo4V8xKqT1_cD91z6");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    name.setText(snapshot.child("name").getValue().toString());
+                    specialization.setText(snapshot.child("category").getValue().toString());
+                    hospital.setText(snapshot.child("hospital").getValue().toString());
+                    date.setText(snapshot.child("dateTime").getValue().toString());
+
+                    //values to pass patient details activity
+                    docName = snapshot.child("name").getValue().toString();
+                    docId = snapshot.child("id").getValue().toString();
+                    dateTime =snapshot.child("dateTime").getValue().toString();
+                }
+                else
+                    Toast.makeText(getApplicationContext(), "Sorry, the doctor you are looking for is not in our system",
+                            Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        //sending doctor details to patient details activity
+        button = findViewById(R.id.requestApp_btn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openPatientDetails();
+                sendDetails();
             }
         });
+
+
     }
 
-    public void openPatientDetails() {
-        Intent intent = new Intent(this, patientDetails.class);
+    public void sendDetails(){
+        Intent intent = new Intent(this,patientDetails.class);
+
+        intent.putExtra("docName",docName);
+        intent.putExtra("docId",docId);
+        intent.putExtra("dateTime",dateTime);
+
         startActivity(intent);
     }
 }

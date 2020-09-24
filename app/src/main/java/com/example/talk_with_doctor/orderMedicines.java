@@ -148,7 +148,7 @@ public class orderMedicines extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Toast.makeText(orderMedicines.this,"Request sent successfully", Toast.LENGTH_LONG).show();
+                            Toast.makeText(orderMedicines.this,"Request sent successfully", Toast.LENGTH_SHORT).show();
                             MedicineOrder md = new MedicineOrder(name.getText().toString().trim(),mobile.getText().toString().trim(),taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(md);

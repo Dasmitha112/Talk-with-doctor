@@ -50,6 +50,7 @@
         <activity android:name=".profilePharmacy" />
         <activity android:name=".prescriptionPharmacy" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivityPatient" />
         <activity android:name=".incomePharmacy" />
         <activity android:name=".homePharmacy" />
         <activity android:name=".MainActivity"></activity>

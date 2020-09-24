@@ -164,7 +164,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline24" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/pName"
             android:layout_width="209dp"
             android:layout_height="35dp"
             android:layout_marginTop="12dp"
@@ -179,7 +179,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline20" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/pAge"
             android:layout_width="209dp"
             android:layout_height="35dp"
             android:layout_marginTop="12dp"
@@ -194,7 +194,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline21" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName4"
+            android:id="@+id/pPhone"
             android:layout_width="209dp"
             android:layout_height="35dp"
             android:layout_marginTop="12dp"
@@ -209,7 +209,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline22" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/pEmail"
             android:layout_width="209dp"
             android:layout_height="35dp"
             android:layout_marginTop="12dp"
@@ -224,7 +224,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline23" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName6"
+            android:id="@+id/pId"
             android:layout_width="209dp"
             android:layout_height="35dp"
             android:layout_marginTop="12dp"
@@ -239,7 +239,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline24" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/req"
             android:layout_width="107dp"
             android:layout_height="51dp"
             android:background="@color/colorPatientAccent"

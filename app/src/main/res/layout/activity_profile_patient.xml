@@ -95,7 +95,7 @@
 
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/update"
             android:layout_width="103dp"
             android:layout_height="48dp"
             android:background="@color/colorPatientAccent"
@@ -114,7 +114,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="20dp"
-            android:text="@string/pID"
+            android:text="Username :"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -142,7 +142,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="20dp"
-            android:text="@string/pAddress"
+            android:text="Password :"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -178,7 +178,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline30" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/username"
             android:layout_width="209dp"
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
@@ -186,7 +186,6 @@
             android:layout_marginRight="40dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/sample_Pid"
             android:textAllCaps="false"
             android:textColor="#9F2C2B2B"
             android:textSize="18sp"
@@ -194,7 +193,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline26" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/name"
             android:layout_width="209dp"
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
@@ -202,7 +201,6 @@
             android:layout_marginRight="40dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/Sample_pName"
             android:textAllCaps="false"
             android:textSize="18sp"
             android:textColor="#9F2C2B2B"
@@ -210,7 +208,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline27" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName4"
+            android:id="@+id/email"
             android:layout_width="209dp"
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
@@ -218,7 +216,6 @@
             android:layout_marginRight="40dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/sample_pEmail"
             android:textAllCaps="false"
             android:textSize="18sp"
             android:textColor="#9F2C2B2B"
@@ -226,7 +223,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline30" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/password"
             android:layout_width="209dp"
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
@@ -234,7 +231,6 @@
             android:layout_marginRight="40dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/sample_pAddress"
             android:textAllCaps="false"
             android:textSize="18sp"
             android:textColor="#9F2C2B2B"
@@ -242,7 +238,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline28" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName6"
+            android:id="@+id/mobile"
             android:layout_width="209dp"
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
@@ -250,7 +246,6 @@
             android:layout_marginRight="40dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/sample_pMobile"
             android:textAllCaps="false"
             android:textSize="18sp"
             android:textColor="#9F2C2B2B"

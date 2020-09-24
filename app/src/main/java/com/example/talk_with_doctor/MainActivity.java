@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
 
             case R.id.generalPatient:
-                i = new Intent(this, homePatient.class);
+                i = new Intent(this, LoginActivityPatient.class);
                 startActivity(i);
                 break;
 

@@ -11,11 +11,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class homePatient extends AppCompatActivity {
 
     Button button;
     ImageView img;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,9 @@ public class homePatient extends AppCompatActivity {
                         return true;
 
                     case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), profilePatient.class));
+                        Intent intent = new Intent(getApplicationContext(),profilePatient.class);
+                        intent.putExtra("username",username);
+                        startActivity(intent);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
@@ -81,20 +86,30 @@ public class homePatient extends AppCompatActivity {
                 openNotifications();
             }
         });
+
+        Intent intent= getIntent();
+        username = intent.getStringExtra("username");
+
+
+
     }
+
 
     public void opeNewAppointment() {
         Intent intent = new Intent(this, newAppointment.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
     public void openOrderMedicine() {
         Intent intent = new Intent(this, orderMedicines.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
     public void openBookings() {
         Intent intent = new Intent(this, Bookings.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 

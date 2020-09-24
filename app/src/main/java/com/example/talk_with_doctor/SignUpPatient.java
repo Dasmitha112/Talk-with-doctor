@@ -1,5 +1,6 @@
 package com.example.talk_with_doctor;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -7,14 +8,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpPatient extends AppCompatActivity {
 
-    EditText textName,textEmail,textAddress,textMobile,textPassword;
+    EditText textName,textEmail,textUsername,textMobile,textPassword;
     Button btn;
     DatabaseReference dbRef;
     Patient pt;
@@ -22,7 +26,7 @@ public class SignUpPatient extends AppCompatActivity {
     private void clearControls(){
         textName.setText("");
         textEmail.setText("");
-        textAddress.setText("");
+        textUsername.setText("");
         textMobile.setText("");
         textPassword.setText("");
 
@@ -35,7 +39,7 @@ public class SignUpPatient extends AppCompatActivity {
 
         textName= findViewById(R.id.name);
         textEmail= findViewById(R.id.email);
-        textAddress= findViewById(R.id.address);
+        textUsername= findViewById(R.id.username);
         textMobile= findViewById(R.id.mobile);
         textPassword= findViewById(R.id.password);
 
@@ -54,21 +58,37 @@ public class SignUpPatient extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Please enter Name", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(textEmail.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter Email", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(textAddress.getText().toString()))
+                    else if (TextUtils.isEmpty(textUsername.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter Address", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(textPassword.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter Password", Toast.LENGTH_SHORT).show();
+                    else if (textPassword.length() < 6)
+                        textPassword.setError("Password must be more than 6 characters");
                     else {
                         pt.setName(textName.getText().toString().trim());
                         pt.setEmail(textEmail.getText().toString().trim());
-                        pt.setAddress(textAddress.getText().toString().trim());
+                        pt.setUsername(textUsername.getText().toString().trim());
                         pt.setMobile(textMobile.getText().toString().trim());
                         pt.setPassword(textPassword.getText().toString().trim());
 
-                        dbRef.push().setValue(pt);
+                        dbRef.child(pt.getUsername()).setValue(pt).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful())
+                                {
+                                    Toast.makeText(getApplicationContext(), "You registered successfully", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(SignUpPatient.this,homePatient.class);
+                                    startActivity(intent);
+                                }
+                                else
+                                {
+                                    Toast.makeText(SignUpPatient.this, "Entered username has been already used", Toast.LENGTH_SHORT).show();
+                                }
+                                clearControls();
+                            }
+                        });
 
-                        Toast.makeText(getApplicationContext(), "You registered successfully", Toast.LENGTH_SHORT).show();
-                        clearControls();
+
                     }
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid contact number", Toast.LENGTH_SHORT).show();
