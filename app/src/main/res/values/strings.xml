@@ -185,6 +185,7 @@
     <string name="view">View</string>
     <string name="insertIncome">Income Insert page</string>
     <string name="Insert">Insert Details</string>
+    <string name="pretrieve">Retrieve</string>
 
     <string name="txtTo">To: </string>
     <string name="txtSubject">Subject</string>

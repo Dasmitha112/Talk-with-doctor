@@ -20,8 +20,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class profilePharmacy extends AppCompatActivity {
 
-    Button button5;
+    Button button5, button7;
     EditText ID, name, mobile, address,email,city;
+    DatabaseReference dbRef;
+    Pharmacy pha;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +39,18 @@ public class profilePharmacy extends AppCompatActivity {
         city = findViewById(R.id.city);
 
         button5 = findViewById(R.id.button5);
+        button7 = findViewById(R.id.button7);
 
-        button5 = (Button) findViewById(R.id.button5);
-        button5.setOnClickListener(new View.OnClickListener() {
+//        button5 = (Button) findViewById(R.id.button5);
+//        button7 = (Button) findViewById(R.id.button7);
+
+        pha = new Pharmacy();
+
+        button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                //retreive
                 DatabaseReference readRef = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("-MHLt0NUb6bJXeAs_W2f");
                 readRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -63,6 +72,49 @@ public class profilePharmacy extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
                     }
+                });
+            }
+        });
+
+        //Update
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference upRef = FirebaseDatabase.getInstance().getReference().child("Pharmacy");
+                upRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        if (dataSnapshot.hasChild("-MHLt0NUb6bJXeAs_W2f")) {
+
+                            try {
+
+                                pha.setID(ID.getText().toString().trim());
+                                pha.setName(name.getText().toString().trim());
+                                pha.setMobile(Integer.parseInt(mobile.getText().toString().trim()));
+                                pha.setAddress(address.getText().toString().trim());
+                                pha.setEmail(email.getText().toString().trim());
+                                pha.setCity(city.getText().toString().trim());
+
+                                dbRef = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("-MHLt0NUb6bJXeAs_W2f");
+                                dbRef.setValue(pha);
+
+
+                                Toast.makeText(getApplicationContext(), "Data updated successfully", Toast.LENGTH_SHORT).show();
+                            } catch (NumberFormatException e) {
+                                Toast.makeText(getApplicationContext(), "Invalid Contact number  ", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else
+                            Toast.makeText(getApplicationContext(), "No source to update", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+
+
                 });
             }
         });
@@ -96,4 +148,5 @@ public class profilePharmacy extends AppCompatActivity {
 
         });
     }
+
 }

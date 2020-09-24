@@ -1,15 +1,18 @@
 package com.example.talk_with_doctor;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -73,6 +76,38 @@ public class incomeInsert extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Invalid User Input", Toast.LENGTH_SHORT).show();
                 }
             }
+        });
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
+        bottomNavigationView.setSelectedItemId(R.id.profile);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), homePharmacy.class));
+                        finish();
+                        overridePendingTransition(0, 0);
+                        return true;
+
+                    case R.id.logout:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        finish();
+                        overridePendingTransition(0, 0);
+                        return true;
+
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), com.example.talk_with_doctor.profilePharmacy.class));
+                        finish();
+                        overridePendingTransition(0, 0);
+                        return true;
+
+                }
+
+                return false;
+            }
+
         });
 
     }

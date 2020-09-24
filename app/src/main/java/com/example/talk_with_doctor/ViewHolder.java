@@ -47,6 +47,22 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     private ViewHolder.Clicklistener mClicklistener;
 
+    public void setIncomeData(Context context, Integer month, Integer sales, Integer income, Integer expences, Integer profit) {
+        TextView textView = itemView.findViewById(R.id.textview_row);
+
+        textView.setText("Month : " + month + "\n" + "Sales : " + sales + "\n" + "Income : " + income + "\n" +
+                "Expences : " + expences + "\n" + "Profit : " + profit);
+
+    }
+
+    public void setOrderData(Context context, String PharmacyName, String CustomerMobile, String mImageUrl) {
+        TextView textView = itemView.findViewById(R.id.textview_row);
+
+        textView.setText("Pharmacy Name : " + PharmacyName + "\n" + "Customer Mobile : " + CustomerMobile + "\n" + "Image URL : " + mImageUrl);
+
+        //imageView=(ImageView)itemView.findViewById(R.id.imageView);
+    }
+
     public interface Clicklistener{
         void onItemlongClick(View view, int position);
     }

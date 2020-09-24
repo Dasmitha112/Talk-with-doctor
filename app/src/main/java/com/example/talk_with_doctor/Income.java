@@ -2,12 +2,32 @@ package com.example.talk_with_doctor;
 
 public class Income {
 
+    private String ID;
     private Integer month;
     private Integer sales;
     private Integer income;
     private Integer expences;
+    private Integer profit;
 
     public Income() {
+    }
+
+    public Integer getProfit() {
+
+        profit= income-expences;
+        return profit;
+    }
+
+    public void setProfit(Integer profit) {
+        this.profit = profit;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     public Integer getMonth() {
