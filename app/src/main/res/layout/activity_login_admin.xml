@@ -108,6 +108,7 @@
         android:fontFamily="sans-serif-medium"
         android:hint="@string/password_login"
         android:textSize="18sp"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

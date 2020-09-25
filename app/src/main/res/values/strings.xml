@@ -206,6 +206,10 @@
     <string name="DoctorMobileInput">0715672662</string>
     <string name="DoctorCategory">Specalication</string>
     <string name="DoctorCategoryInput">Dental Surgeon</string>
+    <string name="DocEmail">E-mail</string>
+    <string name="DocEmailInput">xyz@gmail.com</string>
+    <string name="DocPassword">Password</string>
+    <string name="DocPasswordInput">123456</string>
     <string name="Updatebutton">Update</string>
 
     <string name="appoinment">Appointment</string>
