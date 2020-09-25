@@ -102,9 +102,9 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
                             @Override
                             public void onItemlongClick(View view, int position) {
                                 id = getItem(position).getId();
-                                //username=getItem(position).getUsername();
+                                username=getItem(position).getUsername();
 
-                                showAcceptDialog(id);
+                                showAcceptDialog(username);
                             }
                         });
                     }
@@ -123,7 +123,7 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
 
     }
 
-    private void showAcceptDialog(String id){
+    private void showAcceptDialog(String username){
 
         AlertDialog.Builder builder = new AlertDialog.Builder(AppoinmentsDoctorActivity.this);
         builder.setTitle("Accept");
@@ -136,7 +136,7 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
 
                 ConfirmedAppointments cp = new ConfirmedAppointments();
 
-                Query query = databaseReference.orderByChild("id").equalTo(id);
+                Query query = databaseReference.orderByChild("username").equalTo(username);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -144,12 +144,12 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
 
                             dbRef = FirebaseDatabase.getInstance().getReference().child("Bookings");
 
-                            cp.setUsername(ds.child("username").getValue().toString());
+                            cp.setUsername(username);
                             cp.setDocName(ds.child("doctorName").getValue().toString());
                             cp.setDateTime(ds.child("dateTime").getValue().toString());
                             cp.setHospital(ds.child("hospital").getValue().toString());
 
-                            dbRef.push().setValue(cp);
+                            dbRef.setValue(cp);
 
                         }
                         Toast.makeText(AppoinmentsDoctorActivity.this, "Appointment accepted!", Toast.LENGTH_SHORT).show();
@@ -167,7 +167,7 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Query query = databaseReference.orderByChild("id").equalTo(id);
+                Query query = databaseReference.orderByChild("username").equalTo(username);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
