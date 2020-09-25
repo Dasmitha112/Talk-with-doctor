@@ -22,6 +22,7 @@ public class patientDetails extends AppCompatActivity {
     Button reqBtn;
     DatabaseReference dbRef;
     Appointment ap;
+    String username,hospital;
 
     private void clearControls(){
         name.setText("");
@@ -36,6 +37,10 @@ public class patientDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_details);
 
+        //get data from intent
+        Intent intent = getIntent();
+        username=intent.getStringExtra("username");
+
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
@@ -44,7 +49,9 @@ public class patientDetails extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), homePatient.class));
+                        Intent intent1 = new Intent(getApplicationContext(),homePatient.class);
+                        intent1.putExtra("username",username);
+                        startActivity(intent1);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
@@ -56,7 +63,9 @@ public class patientDetails extends AppCompatActivity {
                         return true;
 
                     case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), profilePatient.class));
+                        Intent intent = new Intent(getApplicationContext(),profilePatient.class);
+                        intent.putExtra("username",username);
+                        startActivity(intent);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
@@ -67,12 +76,12 @@ public class patientDetails extends AppCompatActivity {
 
         });
 
-        //get data from intent
-        Intent intent = getIntent();
+
 
         doctorId = intent.getStringExtra("docId");
         doctorName = intent.getStringExtra("docName");
         dateTime = intent.getStringExtra("dateTime");
+        hospital=intent.getStringExtra("hospital");
 
         name=findViewById(R.id.pName);
         age=findViewById(R.id.pAge);
@@ -97,6 +106,8 @@ public class patientDetails extends AppCompatActivity {
                 ap.setDoctorName(doctorName);
                 ap.setDoctorId(doctorId);
                 ap.setDateTime(dateTime);
+                ap.setUsername(username);
+                ap.setHospital(hospital);
 
                 dbRef.push().setValue(ap);
 

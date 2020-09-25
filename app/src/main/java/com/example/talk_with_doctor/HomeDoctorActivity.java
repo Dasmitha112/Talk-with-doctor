@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class HomeDoctorActivity extends AppCompatActivity {
 
     private Button myDetails, viewPatient, Appoinments, myAppoinments, notifications;
-    String username;
+    String docname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class HomeDoctorActivity extends AppCompatActivity {
 
                     case R.id.profile:
                         Intent intent = new Intent(getApplicationContext(),Profile.class);
-                        intent.putExtra("username",username);
+                        intent.putExtra("docname",docname);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
@@ -83,7 +83,7 @@ public class HomeDoctorActivity extends AppCompatActivity {
         });
 
         Intent intent= getIntent();
-        username = intent.getStringExtra("username");
+        docname = intent.getStringExtra("docname");
 
 
     }
@@ -96,6 +96,7 @@ public class HomeDoctorActivity extends AppCompatActivity {
     }
     private void Appoinments(){
         Intent intent = new Intent(this, AppoinmentsDoctorActivity.class);
+        intent.putExtra("docname",docname);
         startActivity(intent);
     }
     private void MyAppoinments(){

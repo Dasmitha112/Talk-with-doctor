@@ -53,7 +53,7 @@ public class LoginActivityDoctor extends AppCompatActivity {
                             Toast.makeText(LoginActivityDoctor.this,"Login Successfull",Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(LoginActivityDoctor.this, HomeDoctorActivity.class);
-                            intent.putExtra("username", Name);
+                            intent.putExtra("docname", Name);
                             startActivity(intent);
 
                         }else {
@@ -72,5 +72,5 @@ public class LoginActivityDoctor extends AppCompatActivity {
     }
 
 
-    }
+}
 

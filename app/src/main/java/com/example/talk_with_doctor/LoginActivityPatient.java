@@ -34,52 +34,52 @@ public class LoginActivityPatient extends AppCompatActivity {
         password=findViewById(R.id.password);
 
         //signUp button
-       signup.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Intent intent=new Intent(LoginActivityPatient.this, SignUpPatient.class);
-               startActivity(intent);
-           }
-       });
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(LoginActivityPatient.this, SignUpPatient.class);
+                startActivity(intent);
+            }
+        });
 
-       //Login activity
+        //Login activity
 
         dbRef=FirebaseDatabase.getInstance().getReference().child("Patient");
 
-       login.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-               String uName= username.getText().toString().trim();
-               String pw = password.getText().toString().trim();
-
-
-
-               dbRef.child(uName).addValueEventListener(new ValueEventListener() {
-                   @Override
-                   public void onDataChange(@NonNull DataSnapshot snapshot) {
-                       Patient patient = snapshot.getValue(Patient.class);
-                       if(pw.equals(patient.getPassword()) && uName.equals(patient.getUsername()))
-                       {
-                           Toast.makeText(LoginActivityPatient.this,"Login Successfull",Toast.LENGTH_SHORT).show();
-
-                           Intent intent = new Intent(LoginActivityPatient.this, homePatient.class);
-                           intent.putExtra("username",uName);
-                           startActivity(intent);
-                       }else{
-                           Toast.makeText(LoginActivityPatient.this,"Please check again!!",Toast.LENGTH_SHORT).show();
-                       }
-                   }
+                String uName= username.getText().toString().trim();
+                String pw = password.getText().toString().trim();
 
 
-                   @Override
-                   public void onCancelled(@NonNull DatabaseError error) {
 
-                   }
-               });
+                dbRef.child(uName).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Patient patient = snapshot.getValue(Patient.class);
+                        if(pw.equals(patient.getPassword()) && uName.equals(patient.getUsername()))
+                        {
+                            Toast.makeText(LoginActivityPatient.this,"Login Successfull",Toast.LENGTH_SHORT).show();
 
-           }
-       });
+                            Intent intent = new Intent(LoginActivityPatient.this, homePatient.class);
+                            intent.putExtra("username",uName);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(LoginActivityPatient.this,"Please check again!!",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            }
+        });
 
 
     }

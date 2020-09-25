@@ -69,6 +69,14 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         //imageView=(ImageView)itemView.findViewById(R.id.imageView);
     }
 
+    //to retrieve accepted appointments details
+    public void setBookings(Context context, String name, String dateTime, String hospital){
+        TextView textView = itemView.findViewById(R.id.textview_row);
+
+        textView.setText( "Doctor Name: " + name + "\n" + "Date & Time: " + dateTime + "\n" + "Hospital: " + hospital );
+
+    }
+
     public interface Clicklistener{
         void onItemlongClick(View view, int position);
     }

@@ -39,7 +39,9 @@ public class profilePatient extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), homePatient.class));
+                        Intent intent1 = new Intent(getApplicationContext(),homePatient.class);
+                        intent1.putExtra("username",username);
+                        startActivity(intent1);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;

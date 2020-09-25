@@ -10,6 +10,8 @@ public class Appointment {
     String DoctorId;
     String DoctorName;
     String dateTime;
+    String username;
+    String hospital;
 
 
     public Appointment() {
@@ -77,5 +79,21 @@ public class Appointment {
 
     public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(String hospital) {
+        this.hospital = hospital;
     }
 }

@@ -46,11 +46,16 @@ public class orderMedicines extends AppCompatActivity {
     private DatabaseReference mDatabaseRef;
 
     private StorageTask mUploadTask;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_medicines);
+
+        Intent intent=getIntent();
+        username = intent.getStringExtra("username");
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
@@ -60,7 +65,9 @@ public class orderMedicines extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), homePatient.class));
+                        Intent intent1 = new Intent(getApplicationContext(),homePatient.class);
+                        intent1.putExtra("username",username);
+                        startActivity(intent1);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
@@ -72,7 +79,9 @@ public class orderMedicines extends AppCompatActivity {
                         return true;
 
                     case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), profilePatient.class));
+                        Intent intent = new Intent(getApplicationContext(),profilePatient.class);
+                        intent.putExtra("username",username);
+                        startActivity(intent);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;

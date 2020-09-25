@@ -16,11 +16,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class newAppointment extends AppCompatActivity {
 
     Button button;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_appointment);
+
+        //receiving username
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
@@ -30,7 +35,9 @@ public class newAppointment extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), homePatient.class));
+                        Intent intent1 = new Intent(getApplicationContext(),homePatient.class);
+                        intent1.putExtra("username",username);
+                        startActivity(intent1);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
@@ -42,7 +49,9 @@ public class newAppointment extends AppCompatActivity {
                         return true;
 
                     case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), profilePatient.class));
+                        Intent intent = new Intent(getApplicationContext(),profilePatient.class);
+                        intent.putExtra("username",username);
+                        startActivity(intent);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
@@ -81,6 +90,7 @@ public class newAppointment extends AppCompatActivity {
         intent.putExtra("specialization",special);
         intent.putExtra("hospital",hos);
         intent.putExtra("date",Date);
+        intent.putExtra("username",username);
 
         startActivity(intent);
     }

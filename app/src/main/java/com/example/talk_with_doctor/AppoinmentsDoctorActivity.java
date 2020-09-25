@@ -30,15 +30,20 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     RecyclerView recyclerView;
     FirebaseDatabase firebaseDatabase;
-    String id;
+    DatabaseReference dbRef;
+    String id,username;
     Appointment appoinments;
-
+    String docname;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appoinments_doctor);
+
+        //intent
+        Intent intent = getIntent();
+        docname = intent.getStringExtra("docname");
 
         appoinments = new Appointment();
         recyclerView = findViewById(R.id.recyclerviewAppoinment);
@@ -83,7 +88,7 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
 
         FirebaseRecyclerOptions<Appointment> options =
                 new FirebaseRecyclerOptions.Builder<Appointment>()
-                        .setQuery(databaseReference, Appointment.class)
+                        .setQuery(databaseReference.orderByChild("doctorName").equalTo(docname), Appointment.class)
                         .build();
 
         //retrieve names
@@ -97,8 +102,9 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
                             @Override
                             public void onItemlongClick(View view, int position) {
                                 id = getItem(position).getId();
+                                //username=getItem(position).getUsername();
 
-                                //showDeleteDataDialog(id);
+                                showAcceptDialog(id);
                             }
                         });
                     }
@@ -117,44 +123,69 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
 
     }
 
-//    private void showDeleteDataDialog(String id){
-//
-//        AlertDialog.Builder builder = new AlertDialog.Builder(AppoinmentsDoctorActivity.this);
-//        builder.setTitle("Delete");
-//        builder.setMessage("Are you sure to delete this Data?");
-//
-//        //Yes button
-//        builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//
-//                Query query = databaseReference.orderByChild("id").equalTo(id);
-//                query.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                        for (DataSnapshot ds : dataSnapshot.getChildren()){
-//                            ds.getRef().removeValue();
-//                        }
-//                        Toast.makeText(AppoinmentsDoctorActivity.this, "Data successfully Deleted!", Toast.LENGTH_SHORT).show();
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                    }
-//                });
-//            }
-//        });
-//
-//        //No button
-//        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                dialogInterface.dismiss();
-//            }
-//        });
-//        AlertDialog alertDialog = builder.create();
-//        alertDialog.show();
-//    }
+    private void showAcceptDialog(String id){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(AppoinmentsDoctorActivity.this);
+        builder.setTitle("Accept");
+        builder.setMessage("Do you want to accept the request?");
+
+        //Yes button
+        builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                ConfirmedAppointments cp = new ConfirmedAppointments();
+
+                Query query = databaseReference.orderByChild("id").equalTo(id);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot ds : dataSnapshot.getChildren()){
+
+                            dbRef = FirebaseDatabase.getInstance().getReference().child("Bookings");
+
+                            cp.setUsername(ds.child("username").getValue().toString());
+                            cp.setDocName(ds.child("doctorName").getValue().toString());
+                            cp.setDateTime(ds.child("dateTime").getValue().toString());
+                            cp.setHospital(ds.child("hospital").getValue().toString());
+
+                            dbRef.push().setValue(cp);
+
+                        }
+                        Toast.makeText(AppoinmentsDoctorActivity.this, "Appointment accepted!", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+
+        //No button
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Query query = databaseReference.orderByChild("id").equalTo(id);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot ds : dataSnapshot.getChildren()){
+                            ds.getRef().removeValue();
+                        }
+                        Toast.makeText(AppoinmentsDoctorActivity.this, "Appointment deleted!", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
 
 }

@@ -35,12 +35,17 @@ public class doctorDetails extends AppCompatActivity {
     String  docName;
     String docId;
     String dateTime;
+    String username;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_details);
+
+        //get data from intent
+        Intent intent = getIntent();
+        username=intent.getStringExtra("username");
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
@@ -50,7 +55,9 @@ public class doctorDetails extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), homePatient.class));
+                        Intent intent1 = new Intent(getApplicationContext(),homePatient.class);
+                        intent1.putExtra("username",username);
+                        startActivity(intent1);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
@@ -62,7 +69,9 @@ public class doctorDetails extends AppCompatActivity {
                         return true;
 
                     case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), profilePatient.class));
+                        Intent intent = new Intent(getApplicationContext(),profilePatient.class);
+                        intent.putExtra("username",username);
+                        startActivity(intent);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
@@ -72,11 +81,11 @@ public class doctorDetails extends AppCompatActivity {
             }
 
         });
-        //get data from intent
-        Intent intent = getIntent();
+
         dName= intent.getStringExtra("DName");
         category=intent.getStringExtra("specialization");
-        dHospital = intent.getStringExtra("hospital");
+        //dHospital = intent.getStringExtra("hospital");
+        username=intent.getStringExtra("username");
 
 
         //capturing views
@@ -94,7 +103,7 @@ public class doctorDetails extends AppCompatActivity {
         super.onStart();
 
 
-        Query query = FirebaseDatabase.getInstance().getReference("Doctor").child("-MHyo4V8xKqT1_cD91z6");
+        Query query = FirebaseDatabase.getInstance().getReference("Doctor").child(dName);
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -108,6 +117,7 @@ public class doctorDetails extends AppCompatActivity {
                     docName = snapshot.child("name").getValue().toString();
                     docId = snapshot.child("id").getValue().toString();
                     dateTime =snapshot.child("dateTime").getValue().toString();
+                    dHospital=snapshot.child("hospital").getValue().toString();
                 }
                 else
                     Toast.makeText(getApplicationContext(), "Sorry, the doctor you are looking for is not in our system",
@@ -138,6 +148,8 @@ public class doctorDetails extends AppCompatActivity {
         intent.putExtra("docName",docName);
         intent.putExtra("docId",docId);
         intent.putExtra("dateTime",dateTime);
+        intent.putExtra("username",username);
+        intent.putExtra("hospital",dHospital);
 
         startActivity(intent);
     }
