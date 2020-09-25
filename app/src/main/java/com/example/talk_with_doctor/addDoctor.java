@@ -73,7 +73,7 @@ public class addDoctor extends AppCompatActivity {
                         doc.setHospital(editTxtHospital.getText().toString().trim());
                         doc.setDateTime(editTxtDateTime.getText().toString().trim());
 
-                        dbRef.push().setValue(doc);
+                        dbRef.child(doc.getName()).setValue(doc);
 
                         Toast.makeText(getApplicationContext(), "Data saved successfully", Toast.LENGTH_SHORT).show();
                         clearControls();

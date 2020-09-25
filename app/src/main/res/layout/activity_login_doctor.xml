@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".LoginActivityAdmin">
+    tools:context=".LoginActivityDoctor">
 
     <ImageView
         android:id="@+id/imageView"
@@ -90,7 +90,7 @@
         android:background="#9FDAD1D1"
         android:drawableLeft="@drawable/user"
         android:fontFamily="sans-serif-medium"
-        android:hint="Email"
+        android:hint="Name"
         android:textColor="#F3151414"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"

@@ -68,7 +68,7 @@ public class addPharmacy extends AppCompatActivity {
                         pha.setAddress(editTxtAddress.getText().toString().trim());
                         pha.setCity(editTxtCity.getText().toString().trim());
 
-                        dbRef.push().setValue(pha);
+                        dbRef.child(pha.getName()).setValue(pha);
 
                         Toast.makeText(getApplicationContext(), "Data saved successfully", Toast.LENGTH_SHORT).show();
                         clearControls();

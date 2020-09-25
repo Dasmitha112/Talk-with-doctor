@@ -16,48 +16,48 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class LoginActivityAdmin extends AppCompatActivity {
+public class LoginActivityDoctor extends AppCompatActivity {
 
     private Button btnLogin;
-    private EditText editTxtEmail, editTxtPassword;
+    private EditText editTxtName, editTxtPassword;
     DatabaseReference dbRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_admin);
+        setContentView(R.layout.activity_login_doctor);
 
         btnLogin = findViewById(R.id.btnLoginDoc);
-        editTxtEmail  = findViewById(R.id.NameDocLog);
+        editTxtName  = findViewById(R.id.NameDocLog);
         editTxtPassword = findViewById(R.id.PasswordDocLog);
 
         //Login activity
 
-        dbRef= FirebaseDatabase.getInstance().getReference().child("Admin");
+        dbRef= FirebaseDatabase.getInstance().getReference().child("Doctor");
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String email =  editTxtEmail.getText().toString().trim();
+                String Name =  editTxtName.getText().toString().trim();
                 String pw = editTxtPassword.getText().toString().trim();
 
 
 
-                dbRef.child("adm1").addValueEventListener(new ValueEventListener() {
+                dbRef.child(Name).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Admin admin = snapshot.getValue(Admin.class);
-                        if(pw.equals(admin.getPassword()) && email.equals(admin.getEmail()))
+                        Doctor doctor = snapshot.getValue(Doctor.class);
+                        if(pw.equals(doctor.getPassword()) && Name.equals(doctor.getName()))
                         {
-                            Toast.makeText(LoginActivityAdmin.this,"Login Successfull",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivityDoctor.this,"Login Successfull",Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(LoginActivityAdmin.this, homeAdmin.class);
-                            intent.putExtra("username", email);
+                            Intent intent = new Intent(LoginActivityDoctor.this, HomeDoctorActivity.class);
+                            intent.putExtra("username", Name);
                             startActivity(intent);
 
                         }else {
-                            Toast.makeText(LoginActivityAdmin.this,"Please check again!!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivityDoctor.this,"Please check again!!",Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -70,4 +70,7 @@ public class LoginActivityAdmin extends AppCompatActivity {
             }
         });
     }
-}
+
+
+    }
+

@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.generalDoctor:
-                i = new Intent(this, HomeDoctorActivity.class);
+                i = new Intent(this, LoginActivityDoctor.class);
                 startActivity(i);
                 break;
 
