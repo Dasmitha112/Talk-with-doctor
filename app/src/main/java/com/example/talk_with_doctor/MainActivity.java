@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.generalPharmacy:
-                i = new Intent(this, homePharmacy.class);
+                i = new Intent(this, LoginActivityPharmacy.class);
                 startActivity(i);
                 break;
 

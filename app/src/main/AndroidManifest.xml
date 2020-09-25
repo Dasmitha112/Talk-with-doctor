@@ -12,7 +12,8 @@
         android:roundIcon="@drawable/logocircle"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivityDoctor"></activity>
+        <activity android:name=".LoginActivityPharmacy"></activity>
+        <activity android:name=".LoginActivityDoctor" />
         <activity android:name=".LoginActivityAdmin" />
         <activity android:name=".introduction">
             <intent-filter>

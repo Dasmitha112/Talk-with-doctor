@@ -15,6 +15,7 @@ public class homePharmacy extends AppCompatActivity {
 
     private Button button;
     private Button button3;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,9 @@ public class homePharmacy extends AppCompatActivity {
                         return true;
 
                     case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), profilePharmacy.class));
+                        Intent intent = new Intent(getApplicationContext(),profilePharmacy.class);
+                        intent.putExtra("username",username);
+                        startActivity(intent);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
@@ -66,16 +69,21 @@ public class homePharmacy extends AppCompatActivity {
             }
 
         });
+
+        Intent intent= getIntent();
+        username = intent.getStringExtra("username");
     }
 
     private void openIncomeInsert() {
         Intent intent = new Intent (this, incomeInsert.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 
 
     private void openPrescription() {
         Intent intent = new Intent(this, prescriptionPharmacy.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 }
