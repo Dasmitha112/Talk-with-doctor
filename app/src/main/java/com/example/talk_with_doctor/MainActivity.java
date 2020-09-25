@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.generalAdmin:
-                i = new Intent(this, com.example.talk_with_doctor.homeAdmin.class);
+                i = new Intent(this, LoginActivityAdmin.class);
                 startActivity(i);
                 break;
 

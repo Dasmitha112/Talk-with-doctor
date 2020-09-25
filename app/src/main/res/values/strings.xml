@@ -103,7 +103,6 @@
     <string name="txtTalkWithDoctor">Talk With Doctor</string>
 
 
-
     <string name="new_appointment_btn">New Doctor Appointment</string>
     <string name="view_bookings_btn">View Bookings</string>
     <string name="order_medicine_btn">Order Medicines</string>
@@ -195,8 +194,8 @@
     <string name="txtRequestEmail">Request Email</string>
     <string name="txtEmailAddress">admin@gmail.com</string>
     <string name="txtBack">Back</string>
-    
-     <string name="my_details">My Details</string>
+
+    <string name="my_details">My Details</string>
     <string name="DoctorID">Doctor ID</string>
     <string name="DoctorIDInput">001</string>
     <string name="DoctorNametext">Name</string>

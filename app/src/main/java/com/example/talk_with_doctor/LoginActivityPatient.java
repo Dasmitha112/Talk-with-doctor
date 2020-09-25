@@ -59,7 +59,7 @@ public class LoginActivityPatient extends AppCompatActivity {
                    @Override
                    public void onDataChange(@NonNull DataSnapshot snapshot) {
                        Patient patient = snapshot.getValue(Patient.class);
-                       if(pw.equals(patient.getPassword()))
+                       if(pw.equals(patient.getPassword()) && uName.equals(patient.getUsername()))
                        {
                            Toast.makeText(LoginActivityPatient.this,"Login Successfull",Toast.LENGTH_SHORT).show();
 

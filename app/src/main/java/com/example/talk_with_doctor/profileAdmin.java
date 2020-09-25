@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class profileAdmin extends AppCompatActivity {
 
-    EditText editTxtId, editTxtName, editTxtEmail;
+    EditText editTxtId, editTxtName, editTxtEmail, editTxtPassword;
     Button btnUpdate;
     DatabaseReference dbRef;
     FirebaseDatabase firebaseDatabase;
@@ -34,6 +34,7 @@ public class profileAdmin extends AppCompatActivity {
         editTxtId = findViewById(R.id.editTxtId);
         editTxtName = findViewById(R.id.editTxtName);
         editTxtEmail = findViewById(R.id.editTxtEmail);
+        editTxtPassword = findViewById(R.id.editTxtPasswordAdminProfile);
 
         btnUpdate = findViewById(R.id.btnUpdate);
 
@@ -81,6 +82,7 @@ public class profileAdmin extends AppCompatActivity {
                                 adm.setID(editTxtId.getText().toString().trim());
                                 adm.setName(editTxtName.getText().toString().trim());
                                 adm.setEmail(editTxtEmail.getText().toString().trim());
+                                adm.setPassword(editTxtPassword.getText().toString().trim());
 
                                 dbRef = FirebaseDatabase.getInstance().getReference().child("Admin").child("adm1");
                                 dbRef.setValue(adm);
@@ -113,6 +115,7 @@ public class profileAdmin extends AppCompatActivity {
                     editTxtId.setText(dataSnapshot.child("id").getValue().toString());
                     editTxtName.setText(dataSnapshot.child("name").getValue().toString());
                     editTxtEmail.setText(dataSnapshot.child("email").getValue().toString());
+                    editTxtPassword.setText(dataSnapshot.child("password").getValue().toString());
 
                 }else
                     Toast.makeText(getApplicationContext(), "No source to display", Toast.LENGTH_SHORT).show();
