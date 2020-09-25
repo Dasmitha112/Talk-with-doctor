@@ -96,7 +96,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/usernamePha"
-        android:layout_width="284dp"
+        android:layout_width="28dp"
         android:layout_height="50dp"
         android:background="#9FDAD1D1"
         android:drawableLeft="@drawable/user"
@@ -130,7 +130,7 @@
 
     <Button
         android:id="@+id/signupPha"
-        android:layout_width="103dp"
+        android:layout_width="104dp"
         android:layout_height="36dp"
         android:background="#FDF6F6"
         android:text="@string/signup"
