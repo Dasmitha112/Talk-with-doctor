@@ -41,6 +41,7 @@ public class patientDetails extends AppCompatActivity {
         Intent intent = getIntent();
         username=intent.getStringExtra("username");
 
+        //bottom navigation bar
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
@@ -74,10 +75,10 @@ public class patientDetails extends AppCompatActivity {
                 return false;
             }
 
-        });
+        });//end of the navigation bar
 
 
-
+        //receiving details from the previous activity by intent to request an appointment
         doctorId = intent.getStringExtra("docId");
         doctorName = intent.getStringExtra("docName");
         dateTime = intent.getStringExtra("dateTime");
@@ -93,6 +94,7 @@ public class patientDetails extends AppCompatActivity {
 
         ap = new Appointment();
 
+        //setOnClickListener to request the appointment
         reqBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

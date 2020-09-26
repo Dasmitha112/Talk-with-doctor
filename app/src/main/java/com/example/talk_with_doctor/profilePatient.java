@@ -31,6 +31,7 @@ public class profilePatient extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_patient);
 
+        //bottom navigation bar
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.profile);
 
@@ -60,10 +61,10 @@ public class profilePatient extends AppCompatActivity {
                 return false;
             }
 
-        });
+        });//end of the navigation bar
 
 
-
+        //receiving intent
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
 
@@ -73,6 +74,7 @@ public class profilePatient extends AppCompatActivity {
         mobile=findViewById(R.id.mobile);
         email=findViewById(R.id.email);
         update=findViewById(R.id.update);
+
 
         //update method
         update.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +116,7 @@ public class profilePatient extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        //retrieve user details
         dbRef = FirebaseDatabase.getInstance().getReference().child("Patient").child(username);
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

@@ -66,13 +66,6 @@ public class notificationsPatient extends AppCompatActivity {
                     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull ConfirmedAppointments model) {
                         holder.setNotification(getApplicationContext(), model.getDocName());
 
-                        /*holder.setOnClickListener(new ViewHolder.Clicklistener() {
-                            @Override
-                            public void onItemlongClick(View view, int position) {
-                                username = getItem(position).getUsername();
-
-                            }
-                        });*/
                     }
 
 

@@ -31,7 +31,7 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference dbRef;
-    String id,username;
+    String id,dname,username;
     Appointment appoinments;
     String docname;
 
@@ -102,9 +102,10 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
                             @Override
                             public void onItemlongClick(View view, int position) {
                                 id = getItem(position).getId();
+                                dname=getItem(position).getDoctorName();
                                 username=getItem(position).getUsername();
 
-                                showAcceptDialog(username);
+                                showAcceptDialog(dname);
                             }
                         });
                     }
@@ -123,7 +124,7 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
 
     }
 
-    private void showAcceptDialog(String username){
+    private void showAcceptDialog(String dname){
 
         AlertDialog.Builder builder = new AlertDialog.Builder(AppoinmentsDoctorActivity.this);
         builder.setTitle("Accept");
@@ -136,23 +137,25 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
 
                 ConfirmedAppointments cp = new ConfirmedAppointments();
 
-                Query query = databaseReference.orderByChild("username").equalTo(username);
+                Query query = databaseReference.orderByChild("doctorName").equalTo(dname);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot ds : dataSnapshot.getChildren()){
+                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                            if ((ds.child("username").getValue().toString()) == username) {
 
-                            dbRef = FirebaseDatabase.getInstance().getReference().child("Bookings");
+                                dbRef = FirebaseDatabase.getInstance().getReference().child("Bookings");
 
-                            cp.setUsername(username);
-                            cp.setDocName(ds.child("doctorName").getValue().toString());
-                            cp.setDateTime(ds.child("dateTime").getValue().toString());
-                            cp.setHospital(ds.child("hospital").getValue().toString());
+                                cp.setUsername(ds.child("username").getValue().toString());
+                                cp.setDocName(ds.child("doctorName").getValue().toString());
+                                cp.setDateTime(ds.child("dateTime").getValue().toString());
+                                cp.setHospital(ds.child("hospital").getValue().toString());
 
-                            dbRef.push().setValue(cp);
+                                dbRef.push().setValue(cp);
 
+                            }
+                            Toast.makeText(AppoinmentsDoctorActivity.this, "Appointment accepted!", Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(AppoinmentsDoctorActivity.this, "Appointment accepted!", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

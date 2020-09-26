@@ -54,9 +54,11 @@ public class orderMedicines extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_medicines);
 
+        //receiving username from intent
         Intent intent=getIntent();
         username = intent.getStringExtra("username");
 
+        //bottom navigation bar
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
@@ -90,18 +92,21 @@ public class orderMedicines extends AppCompatActivity {
                 return false;
             }
 
-        });
+        });//end of the bottom navigation bar
 
+        //views
         mButtonChooseImage = findViewById(R.id.chooseImage);
         mButtonUpload = findViewById(R.id.requestOrder);
         name = findViewById(R.id.pName);
         mobile = findViewById(R.id.pMobile);
         mImageView=findViewById(R.id.image);
 
+        //to save data in the database
         mStorageRef = FirebaseStorage.getInstance().getReference("MedicineOrder");
         mDatabaseRef= FirebaseDatabase.getInstance().getReference("MedicineOrder");
 
 
+        //set onClickListener to navigate the gallery and to choose an image
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,6 +114,8 @@ public class orderMedicines extends AppCompatActivity {
             }
         });
 
+
+        //if user click the button multiple times to display in progress message
         mButtonUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,6 +130,7 @@ public class orderMedicines extends AppCompatActivity {
 
     }
 
+    //navigate to gallery
     private  void openFileChooser(){
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -150,6 +158,7 @@ public class orderMedicines extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
 
+    //save data in the database
     private void  uploadOrder(){
         if(mImageUri !=null){
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "."+getFileExtension(mImageUri));

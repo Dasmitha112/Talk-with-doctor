@@ -43,10 +43,11 @@ public class doctorDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_details);
 
-        //get data from intent
+        //get username from intent
         Intent intent = getIntent();
         username=intent.getStringExtra("username");
 
+        //navigation bar
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
@@ -80,15 +81,16 @@ public class doctorDetails extends AppCompatActivity {
                 return false;
             }
 
-        });
+        });//end of the navigation bar
 
+        //receiving doctor name and doctor category from the intent
         dName= intent.getStringExtra("DName");
         category=intent.getStringExtra("specialization");
         //dHospital = intent.getStringExtra("hospital");
         username=intent.getStringExtra("username");
 
 
-        //capturing views
+        //capturing to views
         name = findViewById(R.id.dName);
         specialization = findViewById(R.id.special);
         hospital = findViewById(R.id.hospital);
@@ -102,7 +104,7 @@ public class doctorDetails extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-
+        //searching the doctor name and displaying
         Query query = FirebaseDatabase.getInstance().getReference("Doctor").child(dName);
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -142,6 +144,7 @@ public class doctorDetails extends AppCompatActivity {
 
     }
 
+    //sendDetails() method
     public void sendDetails(){
         Intent intent = new Intent(this,patientDetails.class);
 

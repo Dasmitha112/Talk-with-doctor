@@ -30,12 +30,12 @@ public class Bookings extends AppCompatActivity {
     DatabaseReference databaseReference;
     RecyclerView recyclerView;
     FirebaseDatabase firebaseDatabase;
-    String username;
+    String username,docName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        //receiving username
+        //receiving username from intent
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
 
@@ -43,6 +43,7 @@ public class Bookings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookings);
 
+        //bottom navigation bar
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
@@ -76,9 +77,10 @@ public class Bookings extends AppCompatActivity {
                 return false;
             }
 
-        });
+        });//end of the navigation bar
 
 
+        //to retrieve
         ConfirmedAppointments cp = new ConfirmedAppointments();
         recyclerView = findViewById(R.id.bookings);
         recyclerView.setHasFixedSize(true);
@@ -98,7 +100,7 @@ public class Bookings extends AppCompatActivity {
                         .setQuery(databaseReference.orderByChild("username").equalTo(username), ConfirmedAppointments.class)
                         .build();
 
-        //retrieve names
+        //retrieve details
         FirebaseRecyclerAdapter<ConfirmedAppointments, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<ConfirmedAppointments, ViewHolder>(options) {
                     @Override
@@ -108,9 +110,9 @@ public class Bookings extends AppCompatActivity {
                         holder.setOnClickListener(new ViewHolder.Clicklistener() {
                             @Override
                             public void onItemlongClick(View view, int position) {
-                                username = getItem(position).getUsername();
+                                docName = getItem(position).getDocName();
 
-                                showDeleteDataDialog(username);
+                                showDeleteDataDialog(docName);
                             }
                         });
                     }
@@ -129,7 +131,8 @@ public class Bookings extends AppCompatActivity {
 
     }
 
-    private void showDeleteDataDialog(String mImageUrl){
+    //showing dialog box to the user after a long click asking to delete that detail
+    private void showDeleteDataDialog(String docName){
 
         AlertDialog.Builder builder = new AlertDialog.Builder(Bookings.this);
         builder.setTitle("Delete");
@@ -140,7 +143,7 @@ public class Bookings extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                Query query = databaseReference.orderByChild("username").equalTo(username);
+                Query query = databaseReference.orderByChild("docName").equalTo(docName);
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

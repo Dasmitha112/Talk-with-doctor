@@ -25,6 +25,7 @@ public class homePatient extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_patient);
 
+        //bottom navigation bar
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
@@ -53,8 +54,9 @@ public class homePatient extends AppCompatActivity {
                 return false;
             }
 
-        });
+        });//end of the navigation bar
 
+        //set onClickListeners to the buttons to navigate relevant activities
         button = (Button)findViewById(R.id.newAppointment_btn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +89,7 @@ public class homePatient extends AppCompatActivity {
             }
         });
 
+        //receiving username from the intent
         Intent intent= getIntent();
         username = intent.getStringExtra("username");
 
@@ -94,6 +97,8 @@ public class homePatient extends AppCompatActivity {
 
     }
 
+
+    //onClickListeners methods
 
     public void opeNewAppointment() {
         Intent intent = new Intent(this, newAppointment.class);

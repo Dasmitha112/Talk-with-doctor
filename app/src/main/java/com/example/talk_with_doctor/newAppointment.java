@@ -27,6 +27,7 @@ public class newAppointment extends AppCompatActivity {
         Intent intent = getIntent();
         username = intent.getStringExtra("username");
 
+        //bottom navigation bar
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
@@ -60,8 +61,9 @@ public class newAppointment extends AppCompatActivity {
                 return false;
             }
 
-        });
+        });//end of the navigation bar
 
+        //setting onClick activity to the search button
         button = findViewById(R.id.search_btn);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +74,8 @@ public class newAppointment extends AppCompatActivity {
         });
     }
 
+
+    //sendData() method to send data to the doctorDetails activity to search
     public void sendData(){
 
         Intent intent = new Intent(this, doctorDetails.class);

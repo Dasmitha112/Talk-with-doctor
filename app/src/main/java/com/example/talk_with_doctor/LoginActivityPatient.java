@@ -28,6 +28,7 @@ public class LoginActivityPatient extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_patient);
 
+        //finding views
         signup=findViewById(R.id.signup);
         login=findViewById(R.id.login);
         username=findViewById(R.id.username);
@@ -42,8 +43,8 @@ public class LoginActivityPatient extends AppCompatActivity {
             }
         });
 
-        //Login activity
 
+        //Login activity
         dbRef=FirebaseDatabase.getInstance().getReference().child("Patient");
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -52,8 +53,6 @@ public class LoginActivityPatient extends AppCompatActivity {
 
                 String uName= username.getText().toString().trim();
                 String pw = password.getText().toString().trim();
-
-
 
                 dbRef.child(uName).addValueEventListener(new ValueEventListener() {
                     @Override

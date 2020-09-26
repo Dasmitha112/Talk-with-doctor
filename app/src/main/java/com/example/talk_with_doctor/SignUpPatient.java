@@ -47,6 +47,7 @@ public class SignUpPatient extends AppCompatActivity {
 
         pt = new Patient();
 
+        //setOnClickListener to the sign up button
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,7 +65,9 @@ public class SignUpPatient extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Please enter Password", Toast.LENGTH_SHORT).show();
                     else if (textPassword.length() < 6)
                         textPassword.setError("Password must be more than 6 characters");
-                    else {
+
+                    //checking whether username is already used
+                    else if((dbRef.child(textUsername.getText().toString().trim())) == null){
                         pt.setName(textName.getText().toString().trim());
                         pt.setEmail(textEmail.getText().toString().trim());
                         pt.setUsername(textUsername.getText().toString().trim());
@@ -82,13 +85,16 @@ public class SignUpPatient extends AppCompatActivity {
                                 }
                                 else
                                 {
-                                    Toast.makeText(SignUpPatient.this, "Entered username has been already used", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignUpPatient.this, "Try again!!", Toast.LENGTH_SHORT).show();
                                 }
                                 clearControls();
                             }
                         });
 
 
+                    }
+                    else {
+                        Toast.makeText(SignUpPatient.this, "Entered username has been already used", Toast.LENGTH_SHORT).show();
                     }
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid contact number", Toast.LENGTH_SHORT).show();
