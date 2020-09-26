@@ -40,84 +40,25 @@
             app:layout_constraintTop_toBottomOf="@+id/txtAdmin"
             app:layout_constraintVertical_bias="0.233" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="230dp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline32"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="320dp" />
-
-        <TextView
-            android:id="@+id/textView27"
-            android:layout_width="335dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="180dp"
-            android:text="@string/sample_noti1"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView28"
-            android:layout_width="330dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="40dp"
-            android:text="@string/sample_noti2"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline13" />
-
-        <View
-            android:layout_width="400dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/darker_gray"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="405dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline32" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.549">
 
-        <TextView
-            android:id="@+id/textView29"
-            android:layout_width="330dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="40dp"
-            android:text="@string/Sample_noti3"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline32" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bookings"
+                android:layout_width="match_parent"
+                android:layout_height="550dp" />
 
-        <View
-            android:layout_width="400dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.317"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView27" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

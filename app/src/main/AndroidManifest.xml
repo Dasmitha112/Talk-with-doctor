@@ -12,9 +12,7 @@
         android:roundIcon="@drawable/logocircle"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivityPharmacy"></activity>
-        <activity android:name=".LoginActivityDoctor" />
-        <activity android:name=".LoginActivityAdmin" />
+
         <activity android:name=".introduction">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,6 +50,9 @@
         <activity android:name=".prescriptionPharmacy" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".LoginActivityPatient" />
+        <activity android:name=".LoginActivityPharmacy"/>
+        <activity android:name=".LoginActivityDoctor" />
+        <activity android:name=".LoginActivityAdmin" />
         <activity android:name=".incomePharmacy" />
         <activity android:name=".homePharmacy" />
         <activity android:name=".MainActivity" />

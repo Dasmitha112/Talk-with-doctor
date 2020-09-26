@@ -115,6 +115,7 @@ public class homePatient extends AppCompatActivity {
 
     public void openNotifications() {
         Intent intent = new Intent(this, notificationsPatient.class);
+        intent.putExtra("username",username);
         startActivity(intent);
     }
 

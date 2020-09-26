@@ -77,6 +77,14 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     }
 
+    //to notification page
+    public void setNotification(Context context, String name){
+        TextView textView = itemView.findViewById(R.id.textview_row);
+
+        textView.setText( "Doctor " + name +" has confirmed your appointment request."  );
+
+    }
+
     public interface Clicklistener{
         void onItemlongClick(View view, int position);
     }
