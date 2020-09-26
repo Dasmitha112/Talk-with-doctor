@@ -130,7 +130,7 @@
 
     <Button
         android:id="@+id/signupPha"
-        android:layout_width="104dp"
+        android:layout_width="105dp"
         android:layout_height="36dp"
         android:background="#FDF6F6"
         android:text="@string/signup"
