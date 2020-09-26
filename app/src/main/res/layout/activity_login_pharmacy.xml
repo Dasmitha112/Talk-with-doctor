@@ -96,7 +96,7 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/usernamePha"
-        android:layout_width="28dp"
+        android:layout_width="286dp"
         android:layout_height="50dp"
         android:background="#9FDAD1D1"
         android:drawableLeft="@drawable/user"
