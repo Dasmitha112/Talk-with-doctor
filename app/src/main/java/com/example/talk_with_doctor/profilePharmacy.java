@@ -20,104 +20,15 @@ import com.google.firebase.database.ValueEventListener;
 
 public class profilePharmacy extends AppCompatActivity {
 
-    Button button5, button7;
+    Button updatePha;
     EditText ID, name, mobile, address,email,city;
-    DatabaseReference dbRef;
-    Pharmacy pha;
-
+    DatabaseReference dbRef,updbRef;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_pharmacy);
-
-        ID = findViewById(R.id.ID);
-        name = findViewById(R.id.name);
-        mobile = findViewById(R.id.mobile);
-        address = findViewById(R.id.address);
-        email = findViewById(R.id.email);
-        city = findViewById(R.id.city);
-
-        button5 = findViewById(R.id.button5);
-        button7 = findViewById(R.id.button7);
-
-//        button5 = (Button) findViewById(R.id.button5);
-//        button7 = (Button) findViewById(R.id.button7);
-
-        pha = new Pharmacy();
-
-        button7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //retreive
-                DatabaseReference readRef = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("-MHLt0NUb6bJXeAs_W2f");
-                readRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.hasChildren()){
-                            ID.setText(dataSnapshot.child("id").getValue().toString());
-                            name.setText(dataSnapshot.child("name").getValue().toString());
-                            mobile.setText(dataSnapshot.child("mobile").getValue().toString());
-                            address.setText(dataSnapshot.child("address").getValue().toString());
-                            email.setText(dataSnapshot.child("email").getValue().toString());
-                            city.setText(dataSnapshot.child("city").getValue().toString());
-                        }
-                        else
-                            Toast.makeText(getApplicationContext(), "No source to display", Toast.LENGTH_SHORT).show();
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-            }
-        });
-
-        //Update
-        button5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatabaseReference upRef = FirebaseDatabase.getInstance().getReference().child("Pharmacy");
-                upRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                        if (dataSnapshot.hasChild("-MHLt0NUb6bJXeAs_W2f")) {
-
-                            try {
-
-                                pha.setID(ID.getText().toString().trim());
-                                pha.setName(name.getText().toString().trim());
-                                pha.setMobile(Integer.parseInt(mobile.getText().toString().trim()));
-                                pha.setAddress(address.getText().toString().trim());
-                                pha.setEmail(email.getText().toString().trim());
-                                pha.setCity(city.getText().toString().trim());
-
-                                dbRef = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child("-MHLt0NUb6bJXeAs_W2f");
-                                dbRef.setValue(pha);
-
-
-                                Toast.makeText(getApplicationContext(), "Data updated successfully", Toast.LENGTH_SHORT).show();
-                            } catch (NumberFormatException e) {
-                                Toast.makeText(getApplicationContext(), "Invalid Contact number  ", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                        else
-                            Toast.makeText(getApplicationContext(), "No source to update", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-
-
-                });
-            }
-        });
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.profile);
@@ -127,7 +38,9 @@ public class profilePharmacy extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), homePharmacy.class));
+                        Intent intent1 = new Intent(getApplicationContext(),homePharmacy.class);
+                        intent1.putExtra("username",username);
+                        startActivity(intent1);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
@@ -146,6 +59,83 @@ public class profilePharmacy extends AppCompatActivity {
                 return false;
             }
 
+        });
+
+
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
+
+        ID = findViewById(R.id.ID);
+        name=findViewById(R.id.name);
+        mobile=findViewById(R.id.mobile);
+        address=findViewById(R.id.address);
+        email=findViewById(R.id.email);
+        city=findViewById(R.id.city);
+        updatePha=findViewById(R.id.updatePha);
+
+
+        //update method
+        updatePha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Pharmacy pha = new Pharmacy();
+
+                updbRef = FirebaseDatabase.getInstance().getReference().child("Pharmacy");
+                updbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.hasChild(username))
+                        {
+
+                            pha.setID(ID.getText().toString().trim());
+                            pha.setName(name.getText().toString().trim());
+                            pha.setMobile(Integer.parseInt(mobile.getText().toString().trim()));
+                            pha.setAddress(address.getText().toString().trim());
+                            pha.setEmail(email.getText().toString().trim());
+                            pha.setCity(city.getText().toString().trim());
+
+                            dbRef = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child(username);
+                            dbRef.setValue(pha);
+
+                            Toast.makeText(profilePharmacy.this,"Your profile updated successfully",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            }
+        });
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child(username);
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.hasChildren())
+                {
+                    ID.setText(snapshot.child("ID").getValue().toString());
+                    name.setText(snapshot.child("name").getValue().toString());
+                    mobile.setText(snapshot.child("mobile").getValue().toString());
+                    address.setText(snapshot.child("address").getValue().toString());
+                    email.setText(snapshot.child("email").getValue().toString());
+                    city.setText(snapshot.child("city").getValue().toString());
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
         });
     }
 
