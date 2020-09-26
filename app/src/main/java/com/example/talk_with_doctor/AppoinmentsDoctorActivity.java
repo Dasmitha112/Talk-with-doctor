@@ -149,7 +149,7 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
                             cp.setDateTime(ds.child("dateTime").getValue().toString());
                             cp.setHospital(ds.child("hospital").getValue().toString());
 
-                            dbRef.setValue(cp);
+                            dbRef.push().setValue(cp);
 
                         }
                         Toast.makeText(AppoinmentsDoctorActivity.this, "Appointment accepted!", Toast.LENGTH_SHORT).show();
