@@ -69,7 +69,6 @@ public class LoginActivityPharmacy extends AppCompatActivity {
                             Toast.makeText(LoginActivityPharmacy.this,"Please check again!!",Toast.LENGTH_SHORT).show();
                         }
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
