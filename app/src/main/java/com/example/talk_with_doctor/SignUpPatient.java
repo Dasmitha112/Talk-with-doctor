@@ -52,6 +52,15 @@ public class SignUpPatient extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                String enPass = "";
+
+                //encrypting entered password
+                try {
+                    enPass = Security.encrypt(textPassword.getText().toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Patient");
 
                 try {
@@ -66,36 +75,26 @@ public class SignUpPatient extends AppCompatActivity {
                     else if (textPassword.length() < 6)
                         textPassword.setError("Password must be more than 6 characters");
 
-                    //checking whether username is already used
-                    else if((dbRef.child(textUsername.getText().toString().trim())) == null){
                         pt.setName(textName.getText().toString().trim());
                         pt.setEmail(textEmail.getText().toString().trim());
                         pt.setUsername(textUsername.getText().toString().trim());
                         pt.setMobile(textMobile.getText().toString().trim());
-                        pt.setPassword(textPassword.getText().toString().trim());
+                        pt.setPassword(enPass);
 
                         dbRef.child(pt.getUsername()).setValue(pt).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-                                if(task.isSuccessful())
-                                {
+                                if (task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "You registered successfully", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(SignUpPatient.this,homePatient.class);
+                                    Intent intent = new Intent(SignUpPatient.this, homePatient.class);
                                     startActivity(intent);
-                                }
-                                else
-                                {
+                                } else {
                                     Toast.makeText(SignUpPatient.this, "Try again!!", Toast.LENGTH_SHORT).show();
                                 }
                                 clearControls();
                             }
                         });
 
-
-                    }
-                    else {
-                        Toast.makeText(SignUpPatient.this, "Entered username has been already used", Toast.LENGTH_SHORT).show();
-                    }
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid contact number", Toast.LENGTH_SHORT).show();
                 }

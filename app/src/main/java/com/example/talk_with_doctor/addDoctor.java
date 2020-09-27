@@ -17,6 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
 public class addDoctor extends AppCompatActivity {
 
     EditText editTxtId, editTxtName, editTxtPassword, editTxtMobile, editTxtEmail, editTxtCategory, editTxtHospital, editTxtDateTime;
@@ -45,6 +46,16 @@ public class addDoctor extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String enPass = "";
+
+                //encrypting entered password
+                try {
+                    enPass = Security.encrypt(editTxtPassword.getText().toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Doctor");
                 try{
                     if(TextUtils.isEmpty(editTxtId.getText().toString()))
@@ -66,7 +77,7 @@ public class addDoctor extends AppCompatActivity {
                     else{
                         doc.setID(editTxtId.getText().toString().trim());
                         doc.setName(editTxtName.getText().toString().trim());
-                        doc.setPassword(editTxtPassword.getText().toString().trim());
+                        doc.setPassword(enPass);
                         doc.setMobile(Integer.parseInt(editTxtMobile.getText().toString().trim()));
                         doc.setEmail(editTxtEmail.getText().toString().trim());
                         doc.setCategory(editTxtCategory.getText().toString().trim());

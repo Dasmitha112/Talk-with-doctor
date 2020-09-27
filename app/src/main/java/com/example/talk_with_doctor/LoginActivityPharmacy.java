@@ -22,6 +22,10 @@ public class LoginActivityPharmacy extends AppCompatActivity {
     private EditText editTxtName, editTxtPassword;
     DatabaseReference dbRef;
 
+    boolean checkPass;
+    private String encPass;
+    String pass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +45,8 @@ public class LoginActivityPharmacy extends AppCompatActivity {
             }
         });
 
-        //Login activity
 
+        //Login activity
         dbRef=FirebaseDatabase.getInstance().getReference().child("Pharmacy");
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +62,26 @@ public class LoginActivityPharmacy extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         Pharmacy pharmacy = snapshot.getValue(Pharmacy.class);
-                        if(pw.equals(pharmacy.getPassword()) && Name.equals(pharmacy.getName()))
+
+                        //encrypting user provided password
+                        try {
+                            encPass = Security.encrypt(pw);
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                        //fetching password from database
+                        pass = pharmacy.getPassword();
+
+
+                        if(pass.equals(encPass))
+                            checkPass = true;
+                        else
+                            checkPass = false;
+
+                        //check whether input password and name are equal to database values
+                        if(checkPass == true && Name.equals(pharmacy.getName()))
                         {
                             Toast.makeText(LoginActivityPharmacy.this,"Login Successfull",Toast.LENGTH_SHORT).show();
 

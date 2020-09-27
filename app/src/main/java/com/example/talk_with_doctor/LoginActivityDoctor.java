@@ -22,6 +22,10 @@ public class LoginActivityDoctor extends AppCompatActivity {
     private EditText editTxtName, editTxtPassword;
     DatabaseReference dbRef;
 
+    boolean checkPass;
+    private String encPass;
+    String pass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +35,8 @@ public class LoginActivityDoctor extends AppCompatActivity {
         editTxtName  = findViewById(R.id.NameDocLog);
         editTxtPassword = findViewById(R.id.PasswordDocLog);
 
-        //Login activity
 
+        //Login activity
         dbRef= FirebaseDatabase.getInstance().getReference().child("Doctor");
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -43,12 +47,30 @@ public class LoginActivityDoctor extends AppCompatActivity {
                 String pw = editTxtPassword.getText().toString().trim();
 
 
-
                 dbRef.child(Name).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         Doctor doctor = snapshot.getValue(Doctor.class);
-                        if(pw.equals(doctor.getPassword()) && Name.equals(doctor.getName()))
+
+                        //encrypting user provided password
+                        try {
+                            encPass = Security.encrypt(pw);
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                        //fetching password from database
+                        pass = doctor.getPassword();
+
+
+                        if(pass.equals(encPass))
+                            checkPass = true;
+                        else
+                            checkPass = false;
+
+                        //check whether input password and name are equal to database values
+                        if(checkPass == true && Name.equals(doctor.getName()))
                         {
                             Toast.makeText(LoginActivityDoctor.this,"Login Successfull",Toast.LENGTH_SHORT).show();
 

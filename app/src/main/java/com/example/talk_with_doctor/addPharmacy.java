@@ -40,9 +40,20 @@ public class addPharmacy extends AppCompatActivity {
 
         pha = new Pharmacy();
 
+        //data insertion
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String enPass = "";
+
+                //encrypting entered password
+                try {
+                    enPass = Security.encrypt(editTxtPassword.getText().toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Pharmacy");
                 try{
                     if(TextUtils.isEmpty(editTxtId.getText().toString()))
@@ -62,7 +73,7 @@ public class addPharmacy extends AppCompatActivity {
                     else{
                         pha.setID(editTxtId.getText().toString().trim());
                         pha.setName(editTxtName.getText().toString().trim());
-                        pha.setPassword(editTxtPassword.getText().toString().trim());
+                        pha.setPassword(enPass);
                         pha.setMobile(Integer.parseInt(editTxtMobile.getText().toString().trim()));
                         pha.setEmail(editTxtEmail.getText().toString().trim());
                         pha.setAddress(editTxtAddress.getText().toString().trim());

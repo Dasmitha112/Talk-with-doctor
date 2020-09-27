@@ -23,6 +23,10 @@ public class LoginActivityPatient extends AppCompatActivity {
     private EditText username,password;
     DatabaseReference dbRef;
 
+    boolean checkPass;
+    private String encPass;
+    String pass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +62,26 @@ public class LoginActivityPatient extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         Patient patient = snapshot.getValue(Patient.class);
-                        if(pw.equals(patient.getPassword()) && uName.equals(patient.getUsername()))
+
+                        //encrypting user provided password
+                        try {
+                            encPass = Security.encrypt(pw);
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                        //fetching password from database
+                        pass = patient.getPassword();
+
+
+                        if(pass.equals(encPass))
+                            checkPass = true;
+                        else
+                            checkPass = false;
+
+                        //check whether input password and name are equal to database values
+                        if(checkPass == true && uName.equals(patient.getUsername()))
                         {
                             Toast.makeText(LoginActivityPatient.this,"Login Successfull",Toast.LENGTH_SHORT).show();
 
