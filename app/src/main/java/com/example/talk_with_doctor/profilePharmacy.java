@@ -122,7 +122,7 @@ public class profilePharmacy extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.hasChildren())
                 {
-                    ID.setText(snapshot.child("ID").getValue().toString());
+                    ID.setText(snapshot.child("id").getValue().toString());
                     name.setText(snapshot.child("name").getValue().toString());
                     mobile.setText(snapshot.child("mobile").getValue().toString());
                     address.setText(snapshot.child("address").getValue().toString());
