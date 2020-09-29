@@ -60,6 +60,11 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
         textView.setText("ID: "+ Id + "\n"+ "Name: "+name+ "\n"+ "Date & Time: "+ dateTime + "\n" + "phone: "+phone );
     }
+    public void setMyAppoinmnetsData(Context context, String Id, String username, String dateTime, String hospital){
+        TextView textView = itemView.findViewById(R.id.textview_row);
+
+        textView.setText("ID: "+ Id + "\n"+ "Name: "+username+ "\n"+ "Date & Time: "+ dateTime + "\n" + "hospital: "+hospital );
+    }
 
     public void setOrderData(Context context, String PharmacyName, String CustomerMobile, String mImageUrl) {
         TextView textView = itemView.findViewById(R.id.textview_row);

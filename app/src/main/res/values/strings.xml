@@ -210,6 +210,8 @@
     <string name="DocEmailInput">xyz@gmail.com</string>
     <string name="DocPassword">Password</string>
     <string name="DocPasswordInput">123456</string>
+    <string name="DocDataTime"><![CDATA[Date & Time]]></string>
+    <string name="DocDateTimeInput">Every Monday</string>
     <string name="Updatebutton">Update</string>
 
     <string name="appoinment">Appointment</string>

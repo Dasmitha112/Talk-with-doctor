@@ -81,218 +81,223 @@
             app:layout_constraintVertical_bias="0.003">
 
 
-            <TableLayout
-                android:id="@+id/table"
-                android:layout_width="393dp"
-                android:layout_height="173dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="5dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewPatientDoc"
+                android:layout_width="match_parent"
+                android:layout_height="396dp" />
 
-                <TableRow>
+            <!--            <TableLayout-->
+            <!--                android:id="@+id/table"-->
+            <!--                android:layout_width="393dp"-->
+            <!--                android:layout_height="173dp"-->
+            <!--                android:layout_marginHorizontal="10dp"-->
+            <!--                android:layout_marginVertical="5dp">-->
 
-                    <TextView
-                        android:id="@+id/PatientIDHis"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
+            <!--                <TableRow>-->
 
-                        android:background="#D6D4D4"
-                        android:gravity="center"
-                        android:text="@string/PatientIDHis"
-                        android:textStyle="bold" />
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientIDHis"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
 
-                    <TextView
-                        android:id="@+id/PetientNameHis"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_weight="1"
-                        android:background="#D6D4D4"
-                        android:gravity="center"
-                        android:text="@string/PatientNameHis"
-                        android:textStyle="bold" />
+            <!--                        android:background="#D6D4D4"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="@string/PatientIDHis"-->
+            <!--                        android:textStyle="bold" />-->
 
-                    <TextView
-                        android:id="@+id/PatientMobileHis"
-                        android:layout_width="80dp"
-                        android:layout_height="35dp"
-                        android:layout_weight="1"
-                        android:background="#D6D4D4"
-                        android:gravity="center"
-                        android:text="@string/PatientMobileHis"
-                        android:textStyle="bold" />
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PetientNameHis"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:layout_weight="1"-->
+            <!--                        android:background="#D6D4D4"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="@string/PatientNameHis"-->
+            <!--                        android:textStyle="bold" />-->
 
-                    <TextView
-                        android:id="@+id/PatientAgeHis"
-                        android:layout_width="50dp"
-                        android:layout_height="35dp"
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientMobileHis"-->
+            <!--                        android:layout_width="80dp"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:layout_weight="1"-->
+            <!--                        android:background="#D6D4D4"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="@string/PatientMobileHis"-->
+            <!--                        android:textStyle="bold" />-->
 
-                        android:background="#D6D4D4"
-                        android:gravity="center"
-                        android:text="@string/PatientAgeHis"
-                        android:textStyle="bold"
-                        tools:ignore="DuplicateIds" />
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientAgeHis"-->
+            <!--                        android:layout_width="50dp"-->
+            <!--                        android:layout_height="35dp"-->
 
-                    <TextView
+            <!--                        android:background="#D6D4D4"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="@string/PatientAgeHis"-->
+            <!--                        android:textStyle="bold"-->
+            <!--                        tools:ignore="DuplicateIds" />-->
 
-                        android:id="@+id/PatientSeHis"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:background="#D6D4D4"
-                        android:gravity="center"
-                        android:text="@string/PatientSeHis"
-                        android:textStyle="bold" />
-                </TableRow>
+            <!--                    <TextView-->
 
-                <TableRow>
+            <!--                        android:id="@+id/PatientSeHis"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:background="#D6D4D4"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="@string/PatientSeHis"-->
+            <!--                        android:textStyle="bold" />-->
+            <!--                </TableRow>-->
 
-                    <TextView
-                        android:id="@+id/PatientIDHis1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_marginHorizontal="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:text="@string/PatientIDHis1" />
+            <!--                <TableRow>-->
 
-                    <TextView
-                        android:id="@+id/PatientNameHis1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:gravity="center"
-                        android:text="@string/PatientNameHis1" />
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientIDHis1"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:layout_marginHorizontal="1dp"-->
+            <!--                        android:layout_marginBottom="1dp"-->
+            <!--                        android:layout_weight="1"-->
+            <!--                        android:background="@color/white"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="@string/PatientIDHis1" />-->
 
-                    <TextView
-                        android:id="@+id/PatientMobileHis1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_marginEnd="1dp"
-                        android:layout_marginRight="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:text="@string/PatientMobileHis1" />
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientNameHis1"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="@string/PatientNameHis1" />-->
 
-                    <TextView
-                        android:id="@+id/PatientAgeHis1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:text="@string/PatientAgeHis1" />
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientMobileHis1"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:layout_marginEnd="1dp"-->
+            <!--                        android:layout_marginRight="1dp"-->
+            <!--                        android:layout_marginBottom="1dp"-->
+            <!--                        android:layout_weight="1"-->
+            <!--                        android:background="@color/white"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="@string/PatientMobileHis1" />-->
 
-                    <TextView
-                        android:id="@+id/PatientSeHis1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:text="@string/PatientSeHis1" />
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientAgeHis1"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:text="@string/PatientAgeHis1" />-->
 
-
-                </TableRow>
-
-                <TableRow>
-
-                    <TextView
-                        android:id="@+id/PatientIDHis2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_marginHorizontal="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:text="@string/PatientIDHis2" />
-
-                    <TextView
-                        android:id="@+id/PatientNameHis2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_marginEnd="1dp"
-                        android:layout_marginRight="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:text="@string/PatientNameHis2" />
-
-                    <TextView
-                        android:id="@+id/PatientMobileHis2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_marginEnd="1dp"
-                        android:layout_marginRight="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:text="@string/PatientMobileHis2" />
-
-                    <TextView
-                        android:id="@+id/PatientAgeHis2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:text="@string/PatientAgeHis2" />
-
-                    <TextView
-                        android:id="@+id/PatientSeHis2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:text="@string/PatientSeHis2" />
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientSeHis1"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:text="@string/PatientSeHis1" />-->
 
 
-                </TableRow>
+            <!--                </TableRow>-->
 
-                <TableRow>
+            <!--                <TableRow>-->
 
-                    <TextView
-                        android:id="@+id/PatientIDHis3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_marginHorizontal="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:text="@string/PatientIDHis3" />
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientIDHis2"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:layout_marginHorizontal="1dp"-->
+            <!--                        android:layout_marginBottom="1dp"-->
+            <!--                        android:layout_weight="1"-->
+            <!--                        android:background="@color/white"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="@string/PatientIDHis2" />-->
 
-                    <TextView
-                        android:id="@+id/PatientNameHis3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_marginEnd="1dp"
-                        android:layout_marginRight="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:text="@string/PatientNameHis3" />
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientNameHis2"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:layout_marginEnd="1dp"-->
+            <!--                        android:layout_marginRight="1dp"-->
+            <!--                        android:layout_marginBottom="1dp"-->
+            <!--                        android:layout_weight="1"-->
+            <!--                        android:background="@color/white"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="@string/PatientNameHis2" />-->
 
-                    <TextView
-                        android:id="@+id/PatientMobileHis3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_marginEnd="1dp"
-                        android:layout_marginRight="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:layout_weight="1"
-                        android:background="@color/white"
-                        android:gravity="center"
-                        android:text="@string/PatientMobileHis3" />
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientMobileHis2"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:layout_marginEnd="1dp"-->
+            <!--                        android:layout_marginRight="1dp"-->
+            <!--                        android:layout_marginBottom="1dp"-->
+            <!--                        android:layout_weight="1"-->
+            <!--                        android:background="@color/white"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="@string/PatientMobileHis2" />-->
 
-                    <TextView
-                        android:id="@+id/PatientAgeHis3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:text="@string/PatientAgeHis3" />
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientAgeHis2"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:text="@string/PatientAgeHis2" />-->
 
-                    <TextView
-                        android:id="@+id/PatientSeHis3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:text="@string/PatientSeHis3" />
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientSeHis2"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:text="@string/PatientSeHis2" />-->
 
-                </TableRow>
 
-            </TableLayout>
+            <!--                </TableRow>-->
+
+            <!--                <TableRow>-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientIDHis3"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:layout_marginHorizontal="1dp"-->
+            <!--                        android:layout_marginBottom="1dp"-->
+            <!--                        android:layout_weight="1"-->
+            <!--                        android:background="@color/white"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="@string/PatientIDHis3" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientNameHis3"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:layout_marginEnd="1dp"-->
+            <!--                        android:layout_marginRight="1dp"-->
+            <!--                        android:layout_marginBottom="1dp"-->
+            <!--                        android:layout_weight="1"-->
+            <!--                        android:background="@color/white"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="@string/PatientNameHis3" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientMobileHis3"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:layout_marginEnd="1dp"-->
+            <!--                        android:layout_marginRight="1dp"-->
+            <!--                        android:layout_marginBottom="1dp"-->
+            <!--                        android:layout_weight="1"-->
+            <!--                        android:background="@color/white"-->
+            <!--                        android:gravity="center"-->
+            <!--                        android:text="@string/PatientMobileHis3" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientAgeHis3"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:text="@string/PatientAgeHis3" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/PatientSeHis3"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="35dp"-->
+            <!--                        android:text="@string/PatientSeHis3" />-->
+
+            <!--                </TableRow>-->
+
+            <!--            </TableLayout>-->
 
         </LinearLayout>
 

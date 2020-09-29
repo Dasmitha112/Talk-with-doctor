@@ -6,6 +6,7 @@ public class ConfirmedAppointments {
     String docName;
     String dateTime;
     String hospital;
+    String id;
 
     public ConfirmedAppointments() {
     }
@@ -40,5 +41,13 @@ public class ConfirmedAppointments {
 
     public void setHospital(String hospital) {
         this.hospital = hospital;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

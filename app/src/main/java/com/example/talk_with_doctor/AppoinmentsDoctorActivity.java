@@ -150,6 +150,7 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
                                 cp.setDocName(ds.child("doctorName").getValue().toString());
                                 cp.setDateTime(ds.child("dateTime").getValue().toString());
                                 cp.setHospital(ds.child("hospital").getValue().toString());
+                                cp.setId(ds.child("id").getValue().toString());
 
                                 dbRef.push().setValue(cp);
 

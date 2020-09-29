@@ -41,6 +41,7 @@ public class HomeDoctorActivity extends AppCompatActivity {
                     case R.id.profile:
                         Intent intent = new Intent(getApplicationContext(),Profile.class);
                         intent.putExtra("docname",docname);
+                        startActivity(intent);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;

@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="58dp" />
+            app:layout_constraintGuide_begin="52dp" />
 
         <TextView
             android:id="@+id/DoctorDetails"
@@ -49,35 +49,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="129dp" />
+            app:layout_constraintGuide_begin="114dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="180dp" />
+            app:layout_constraintGuide_begin="162dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="237dp" />
+            app:layout_constraintGuide_begin="203dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="300dp" />
+            app:layout_constraintGuide_begin="259dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="354dp" />
+            app:layout_constraintGuide_begin="307dp" />
 
         <TextView
             android:id="@+id/DoctorID"
@@ -243,7 +243,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="428dp" />
+            app:layout_constraintGuide_begin="372dp" />
 
         <TextView
             android:id="@+id/DocEmail"
@@ -275,7 +275,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="483dp" />
+            app:layout_constraintGuide_begin="410dp" />
 
         <TextView
             android:id="@+id/DocPassword"
@@ -301,6 +301,38 @@
             android:text="@string/DocPasswordInput"
             app:layout_constraintBaseline_toBaselineOf="@+id/DocPassword"
             app:layout_constraintStart_toEndOf="@+id/DocPassword" />
+
+        <TextView
+            android:id="@+id/DocDateTime"
+            android:layout_width="119dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/DocDataTime"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline32" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="492dp" />
+
+        <EditText
+            android:id="@+id/DocDateTimeInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/DocDateTimeInput"
+            app:layout_constraintBaseline_toBaselineOf="@+id/DocDateTime"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
