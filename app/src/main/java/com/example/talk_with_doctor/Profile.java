@@ -24,7 +24,7 @@ public class Profile extends AppCompatActivity {
     Button btnUpdate, retrivebtn;
     DatabaseReference dbRef;
     Doctor doctor;
-    String Name;
+    String Name, encPass, decPass, pass;;
 
 
     @Override
@@ -68,8 +68,6 @@ public class Profile extends AppCompatActivity {
         Name = intent.getStringExtra("docname");
 
 
-
-
         TxtId = findViewById(R.id.DoctorIDInput);
         TxtName = findViewById(R.id.DoctorNameInput);
         TxtHos = findViewById(R.id.DoctorHosInput);
@@ -91,6 +89,17 @@ public class Profile extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.hasChild(Name)) {
+
+                            String pw = TxtPass.getText().toString();
+
+                            //encrypting user updated password
+                            try {
+                                encPass = Security.encrypt(pw);
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+
                             try {
                                 doctor.setID(TxtId.getText().toString().trim());
                                 doctor.setName(TxtName.getText().toString().trim());
@@ -98,7 +107,7 @@ public class Profile extends AppCompatActivity {
                                 doctor.setMobile(Integer.parseInt(TxtMobile.getText().toString().trim()));
                                 doctor.setCategory(TxtSpeci.getText().toString().trim());
                                 doctor.setEmail(TxtEmail.getText().toString().trim());
-                                doctor.setPassword(TxtPass.getText().toString().trim());
+                                doctor.setPassword(encPass);
                                 doctor.setPassword(TxtDateTime.getText().toString().trim());
 
                                 dbRef = FirebaseDatabase.getInstance().getReference().child("Doctor").child(Name);
@@ -136,13 +145,24 @@ public class Profile extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
 
+                    //fetching password from database
+                    pass = dataSnapshot.child("password").getValue().toString();
+
+                    //decrypting password
+                    try {
+                        decPass = Security.decrypt(pass);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                     TxtId.setText(dataSnapshot.child("id").getValue().toString());
                     TxtName.setText(dataSnapshot.child("name").getValue().toString());
                     TxtHos.setText(dataSnapshot.child("hospital").getValue().toString());
                     TxtMobile.setText(dataSnapshot.child("mobile").getValue().toString());
                     TxtSpeci.setText(dataSnapshot.child("category").getValue().toString());
                     TxtEmail.setText(dataSnapshot.child("email").getValue().toString());
-                    TxtPass.setText(dataSnapshot.child("password").getValue().toString());
+                    TxtPass.setText(decPass);
                     TxtDateTime.setText(dataSnapshot.child("dateTime").getValue().toString());
 
                 } else

@@ -57,8 +57,8 @@ public class LoginActivityPharmacy extends AppCompatActivity {
                 String pw = editTxtPassword.getText().toString().trim();
 
 
-
-                dbRef.child(Name).addValueEventListener(new ValueEventListener() {
+                dbRef.child(Name);
+                dbRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         Pharmacy pharmacy = snapshot.getValue(Pharmacy.class);
@@ -66,32 +66,36 @@ public class LoginActivityPharmacy extends AppCompatActivity {
                         //encrypting user provided password
                         try {
                             encPass = Security.encrypt(pw);
+                            System.out.println("\n" + "Login: Encrypted user provided password:  " + encPass + "\n");
 
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
 
                         //fetching password from database
+
                         pass = pharmacy.getPassword();
+                        System.out.println("\n" + "Login: DB retrieved password:  " + pass + "\n");
 
 
-                        if(pass.equals(encPass))
+                        if (pass.equals(encPass))
                             checkPass = true;
                         else
                             checkPass = false;
 
+
                         //check whether input password and name are equal to database values
-                        if(checkPass == true && Name.equals(pharmacy.getName()))
-                        {
-                            Toast.makeText(LoginActivityPharmacy.this,"Login Successfull",Toast.LENGTH_SHORT).show();
+                        if (checkPass == true && Name.equals(pharmacy.getName())) {
+                            Toast.makeText(LoginActivityPharmacy.this, "Login Successfull", Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(LoginActivityPharmacy.this, homePharmacy.class);
-                            intent.putExtra("username",Name);
+                            intent.putExtra("username", Name);
                             startActivity(intent);
-                        }else{
-                            Toast.makeText(LoginActivityPharmacy.this,"Please check again!!",Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(LoginActivityPharmacy.this, "Please check again!!", Toast.LENGTH_SHORT).show();
                         }
                     }
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 

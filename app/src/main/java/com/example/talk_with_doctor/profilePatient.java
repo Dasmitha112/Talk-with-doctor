@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class profilePatient extends AppCompatActivity {
 
-    String username;
+    String username, encPass, decPass, pass;
     EditText userName,name,password,email,mobile;
     DatabaseReference dbRef,updbRef;
     Button update;
@@ -88,9 +88,20 @@ public class profilePatient extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.hasChild(username))
                         {
+
+                            String pw = password.getText().toString();
+
+                            //encrypting user updated password
+                            try {
+                                encPass = Security.encrypt(pw);
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+
                             pt.setUsername(userName.getText().toString().trim());
                             pt.setName(name.getText().toString().trim());
-                            pt.setPassword(password.getText().toString().trim());
+                            pt.setPassword(encPass);
                             pt.setMobile(mobile.getText().toString().trim());
                             pt.setEmail(email.getText().toString().trim());
 
@@ -123,9 +134,21 @@ public class profilePatient extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.hasChildren())
                 {
+
+                    //fetching password from database
+                    pass = snapshot.child("password").getValue().toString();
+
+                    //decrypting password
+                    try {
+                        decPass = Security.decrypt(pass);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                     userName.setText(snapshot.child("username").getValue().toString());
                     name.setText(snapshot.child("name").getValue().toString());
-                    password.setText(snapshot.child("password").getValue().toString());
+                    password.setText(decPass);
                     mobile.setText(snapshot.child("mobile").getValue().toString());
                     email.setText(snapshot.child("email").getValue().toString());
                 }

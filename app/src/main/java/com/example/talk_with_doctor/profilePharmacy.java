@@ -23,7 +23,7 @@ public class profilePharmacy extends AppCompatActivity {
     Button updatePha;
     EditText ID, name, mobile, address,email,password,city;
     DatabaseReference dbRef,updbRef;
-    String username;
+    String username, encPass, decPass, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +75,7 @@ public class profilePharmacy extends AppCompatActivity {
         updatePha=findViewById(R.id.updatePha);
 
 
+
         //update method
         updatePha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,13 +89,23 @@ public class profilePharmacy extends AppCompatActivity {
                         if(snapshot.hasChild(username))
                         {
 
+                            String pw = password.getText().toString();
+
+                            //encrypting user updated password
+                            try {
+                                encPass = Security.encrypt(pw);
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+
                             pha.setID(ID.getText().toString().trim());
                             pha.setName(name.getText().toString().trim());
                             pha.setMobile(Integer.parseInt(mobile.getText().toString().trim()));
                             pha.setAddress(address.getText().toString().trim());
                             pha.setEmail(email.getText().toString().trim());
-                            pha.setCity(password.getText().toString().trim());
-                            pha.setPassword(city.getText().toString().trim());
+                            pha.setCity(city.getText().toString().trim());
+                            pha.setPassword(encPass);
 
                             dbRef = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child(username);
                             dbRef.setValue(pha);
@@ -124,12 +135,24 @@ public class profilePharmacy extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.hasChildren())
                 {
+
+                    //fetching password from database
+                    pass = snapshot.child("password").getValue().toString();
+
+                    //decrypting password
+                    try {
+                        decPass = Security.decrypt(pass);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                     ID.setText(snapshot.child("id").getValue().toString());
                     name.setText(snapshot.child("name").getValue().toString());
                     mobile.setText(snapshot.child("mobile").getValue().toString());
                     address.setText(snapshot.child("address").getValue().toString());
                     email.setText(snapshot.child("email").getValue().toString());
-                    password.setText(snapshot.child("password").getValue().toString());
+                    password.setText(decPass);
                     city.setText(snapshot.child("city").getValue().toString());
 
                 }
