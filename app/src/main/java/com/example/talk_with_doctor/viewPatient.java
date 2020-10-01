@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class viewPatient extends AppCompatActivity {
+public class viewPatient<firebaseRecyclerAdapter> extends AppCompatActivity {
 
     DatabaseReference databaseReference;
     RecyclerView recyclerView;
@@ -45,10 +45,10 @@ public class viewPatient extends AppCompatActivity {
 
         databaseReference = firebaseDatabase.getInstance().getReference().child("Patient");
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.profile);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
@@ -90,11 +90,21 @@ public class viewPatient extends AppCompatActivity {
         //retrieve names
         FirebaseRecyclerAdapter<Patient, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Patient, ViewHolder>(options) {
+
+
                     @Override
                     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Patient model) {
                         holder.setPatientData(getApplicationContext(), model.getName(), model.getEmail(),
                                 model.getUsername(), Integer.parseInt(model.getMobile()), model.getPassword());
 
+                        holder.setOnClickListener(new ViewHolder.Clicklistener() {
+                            @Override
+                            public void onItemlongClick(View view, int position) {
+                                id = getItem(position).getUsername();
+
+                                showDeleteDataDialog(id);
+                            }
+                        });
                     }
 
                     @NonNull
@@ -105,10 +115,56 @@ public class viewPatient extends AppCompatActivity {
 
                         return new ViewHolder(view);
                     }
-                };
-        firebaseRecyclerAdapter.startListening();
-        recyclerView.setAdapter(firebaseRecyclerAdapter);
 
-    }
+                };
+
+                firebaseRecyclerAdapter.startListening();
+                recyclerView.setAdapter(firebaseRecyclerAdapter);
+        }
+
+
+
+
+
+        private void showDeleteDataDialog(String id){
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(viewPatient.this);
+            builder.setTitle("Delete");
+            builder.setMessage("Are you sure to delete this Data?");
+
+            //Yes button
+            builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    Query query = databaseReference.orderByChild("username").equalTo(id);
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot ds : dataSnapshot.getChildren()){
+                                ds.getRef().removeValue();
+                            }
+                            Toast.makeText(viewPatient.this, "Data successfully Deleted!", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+            });
+
+            //No button
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+        }
 
 }
+
