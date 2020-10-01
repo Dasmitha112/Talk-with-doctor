@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 public class profilePharmacy extends AppCompatActivity {
 
     Button updatePha;
-    EditText ID, name, mobile, address,email,city;
+    EditText ID, name, mobile, address,email,password,city;
     DatabaseReference dbRef,updbRef;
     String username;
 
@@ -70,6 +70,7 @@ public class profilePharmacy extends AppCompatActivity {
         mobile=findViewById(R.id.mobile);
         address=findViewById(R.id.address);
         email=findViewById(R.id.email);
+        password=findViewById(R.id.password);
         city=findViewById(R.id.city);
         updatePha=findViewById(R.id.updatePha);
 
@@ -92,7 +93,8 @@ public class profilePharmacy extends AppCompatActivity {
                             pha.setMobile(Integer.parseInt(mobile.getText().toString().trim()));
                             pha.setAddress(address.getText().toString().trim());
                             pha.setEmail(email.getText().toString().trim());
-                            pha.setCity(city.getText().toString().trim());
+                            pha.setCity(password.getText().toString().trim());
+                            pha.setPassword(city.getText().toString().trim());
 
                             dbRef = FirebaseDatabase.getInstance().getReference().child("Pharmacy").child(username);
                             dbRef.setValue(pha);
@@ -127,6 +129,7 @@ public class profilePharmacy extends AppCompatActivity {
                     mobile.setText(snapshot.child("mobile").getValue().toString());
                     address.setText(snapshot.child("address").getValue().toString());
                     email.setText(snapshot.child("email").getValue().toString());
+                    password.setText(snapshot.child("password").getValue().toString());
                     city.setText(snapshot.child("city").getValue().toString());
 
                 }

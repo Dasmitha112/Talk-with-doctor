@@ -22,6 +22,7 @@ public class incomeInsert extends AppCompatActivity {
     EditText txtMonth, txtSales, txtIncome, txtEx;
     DatabaseReference dbRef;
     Income in;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,16 +80,13 @@ public class incomeInsert extends AppCompatActivity {
         });
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
-        bottomNavigationView.setSelectedItemId(R.id.profile);
+        bottomNavigationView.setSelectedItemId(R.id.home);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), homePharmacy.class));
-                        finish();
-                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.logout:
@@ -98,17 +96,20 @@ public class incomeInsert extends AppCompatActivity {
                         return true;
 
                     case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), com.example.talk_with_doctor.profilePharmacy.class));
+                        Intent intent = new Intent(getApplicationContext(),profilePharmacy.class);
+                        intent.putExtra("username",username);
+                        startActivity(intent);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
-
                 }
 
                 return false;
             }
 
         });
+        Intent intent= getIntent();
+        username = intent.getStringExtra("username");
 
     }
 

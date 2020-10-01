@@ -31,6 +31,7 @@ public class prescriptionPharmacy extends AppCompatActivity {
     RecyclerView recyclerView;
     FirebaseDatabase firebaseDatabase;
     String mImageUrl;
+    String username;
     MedicineOrder medicineOrder;
 
 
@@ -47,16 +48,13 @@ public class prescriptionPharmacy extends AppCompatActivity {
         databaseReference = firebaseDatabase.getInstance().getReference().child("MedicineOrder");
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
-        bottomNavigationView.setSelectedItemId(R.id.profile);
+        bottomNavigationView.setSelectedItemId(R.id.home);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), homePharmacy.class));
-                        finish();
-                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.logout:
@@ -66,17 +64,22 @@ public class prescriptionPharmacy extends AppCompatActivity {
                         return true;
 
                     case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), profilePharmacy.class));
+                        Intent intent = new Intent(getApplicationContext(),profilePharmacy.class);
+                        intent.putExtra("username",username);
+                        startActivity(intent);
                         finish();
                         overridePendingTransition(0, 0);
                         return true;
-
                 }
 
                 return false;
             }
 
         });
+
+        Intent intent= getIntent();
+        username = intent.getStringExtra("username");
+
     }
 
 
