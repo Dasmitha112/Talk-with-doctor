@@ -108,7 +108,7 @@ public class Profile extends AppCompatActivity {
                                 doctor.setCategory(TxtSpeci.getText().toString().trim());
                                 doctor.setEmail(TxtEmail.getText().toString().trim());
                                 doctor.setPassword(encPass);
-                                doctor.setPassword(TxtDateTime.getText().toString().trim());
+                                doctor.setDateTime(TxtDateTime.getText().toString().trim());
 
                                 dbRef = FirebaseDatabase.getInstance().getReference().child("Doctor").child(Name);
                                 dbRef.setValue(doctor);

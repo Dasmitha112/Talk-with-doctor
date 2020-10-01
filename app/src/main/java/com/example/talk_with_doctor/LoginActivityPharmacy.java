@@ -57,8 +57,7 @@ public class LoginActivityPharmacy extends AppCompatActivity {
                 String pw = editTxtPassword.getText().toString().trim();
 
 
-                dbRef.child(Name);
-                dbRef.addValueEventListener(new ValueEventListener() {
+                dbRef.child(Name).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         Pharmacy pharmacy = snapshot.getValue(Pharmacy.class);
