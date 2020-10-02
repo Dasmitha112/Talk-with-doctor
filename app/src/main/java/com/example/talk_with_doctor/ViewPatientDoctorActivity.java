@@ -49,7 +49,7 @@ public class ViewPatientDoctorActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        databaseReference = firebaseDatabase.getInstance().getReference().child("Bookings");
+        databaseReference = firebaseDatabase.getInstance().getReference().child("AllPatients");
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.profile);
@@ -93,7 +93,7 @@ public class ViewPatientDoctorActivity extends AppCompatActivity {
                         .setQuery(databaseReference, ConfirmedAppointments.class)
                         .build();
 
-        //retrieve names
+        //retrieve All Patients who takes appoinments from the relavent doctor
         FirebaseRecyclerAdapter<ConfirmedAppointments, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<ConfirmedAppointments, ViewHolder>(options) {
                     @Override
@@ -105,7 +105,6 @@ public class ViewPatientDoctorActivity extends AppCompatActivity {
                             public void onItemlongClick(View view, int position) {
                                 id = getItem(position).getId();
 
-                                showDeleteDataDialog(id);
                             }
                         });
                     }
@@ -124,44 +123,7 @@ public class ViewPatientDoctorActivity extends AppCompatActivity {
 
     }
 
-    private void showDeleteDataDialog(String id){
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(ViewPatientDoctorActivity.this);
-        builder.setTitle("Delete");
-        builder.setMessage("Are you sure to delete this Data?");
-
-        //Yes button
-        builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Query query = databaseReference.orderByChild("id").equalTo(id);
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot ds : dataSnapshot.getChildren()){
-                            ds.getRef().removeValue();
-                        }
-                        Toast.makeText(ViewPatientDoctorActivity.this, "Data successfully Deleted!", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-            }
-        });
-
-        //No button
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-    }
 }
 
 

@@ -94,7 +94,7 @@ public class MyAppoinmentsDoctorActivity extends AppCompatActivity {
                         .setQuery(databaseReference, ConfirmedAppointments.class)
                         .build();
 
-        //retrieve names
+        //retrieve myAppoinments
         FirebaseRecyclerAdapter<ConfirmedAppointments, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<ConfirmedAppointments, ViewHolder>(options) {
                     @Override

@@ -79,7 +79,7 @@ public class LoginActivityDoctor extends AppCompatActivity {
                             startActivity(intent);
 
                         }else {
-                            Toast.makeText(LoginActivityDoctor.this,"Please check again!!",Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(LoginActivityDoctor.this,"Please check again!!",Toast.LENGTH_SHORT).show();
                         }
                     }
 

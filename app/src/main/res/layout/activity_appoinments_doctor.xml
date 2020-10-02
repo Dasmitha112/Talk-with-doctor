@@ -19,15 +19,15 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="499dp"
         android:layout_above="@+id/navigation"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="178dp"
+        android:layout_marginTop="145dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
-        android:layout_marginBottom="126dp"
+        android:layout_marginBottom="-2dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/guideline16"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +47,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerviewAppoinment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="471dp" />
 
         <!--        <TableLayout-->
         <!--            android:id="@+id/table"-->

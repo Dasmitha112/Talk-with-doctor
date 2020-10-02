@@ -52,34 +52,34 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
 
         databaseReference = firebaseDatabase.getInstance().getReference().child("Appointments");
 
-//        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
-//        bottomNavigationView.setSelectedItemId(R.id.profile);
-//
-//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-//                switch (menuItem.getItemId()) {
-//                    case R.id.home:
-//                        startActivity(new Intent(getApplicationContext(), HomeDoctorActivity.class));
-//                        finish();
-//                        overridePendingTransition(0, 0);
-//                        return true;
-//
-//                    case R.id.logout:
-//                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-//                        finish();
-//                        overridePendingTransition(0, 0);
-//                        return true;
-//
-//                    case R.id.profile:
-//                        return true;
-//
-//                }
-//
-//                return false;
-//            }
-//
-//        });
+        BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
+        bottomNavigationView.setSelectedItemId(R.id.profile);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), HomeDoctorActivity.class));
+                        finish();
+                        overridePendingTransition(0, 0);
+                        return true;
+
+                    case R.id.logout:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        finish();
+                        overridePendingTransition(0, 0);
+                        return true;
+
+                    case R.id.profile:
+                        return true;
+
+                }
+
+                return false;
+            }
+
+        });
     }
 
     @Override
@@ -91,7 +91,7 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
                         .setQuery(databaseReference.orderByChild("doctorName").equalTo(docname), Appointment.class)
                         .build();
 
-        //retrieve names
+        //retrieve Appoinments
         FirebaseRecyclerAdapter<Appointment, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Appointment, ViewHolder>(options) {
                     @Override
@@ -153,6 +153,34 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
                                 cp.setId(ds.child("id").getValue().toString());
 
                                 dbRef.push().setValue(cp);
+
+                            }
+                            Toast.makeText(AppoinmentsDoctorActivity.this, "Appointment accepted!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                Query query1 = databaseReference.orderByChild("doctorName").equalTo(dname);
+                query1.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                            if ((ds.child("username").getValue().toString()) == username) {
+
+                                dbRef = FirebaseDatabase.getInstance().getReference().child("AllPatients");
+
+                                cp.setUsername(ds.child("username").getValue().toString());
+                                cp.setDocName(ds.child("doctorName").getValue().toString());
+                                cp.setDateTime(ds.child("dateTime").getValue().toString());
+                                cp.setHospital(ds.child("hospital").getValue().toString());
+                                cp.setId(ds.child("id").getValue().toString());
+
+                                dbRef.child(cp.getUsername()).setValue(cp);
 
                             }
                             Toast.makeText(AppoinmentsDoctorActivity.this, "Appointment accepted!", Toast.LENGTH_SHORT).show();
