@@ -89,17 +89,13 @@ public class Profile extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.hasChild(Name)) {
-
                             String pw = TxtPass.getText().toString();
-
                             //encrypting user updated password
                             try {
                                 encPass = Security.encrypt(pw);
-
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-
                             try {
                                 doctor.setID(TxtId.getText().toString().trim());
                                 doctor.setName(TxtName.getText().toString().trim());
@@ -118,16 +114,12 @@ public class Profile extends AppCompatActivity {
                             } catch (NumberFormatException e) {
                                 Toast.makeText(getApplicationContext(), "Invalid Contact Number", Toast.LENGTH_SHORT).show();
                             }
-
-
                         } else {
                             Toast.makeText(getApplicationContext(), "No Source Update", Toast.LENGTH_SHORT).show();
                         }
-
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
                     }
                 });
             }

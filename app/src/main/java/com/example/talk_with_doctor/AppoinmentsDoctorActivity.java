@@ -72,8 +72,10 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), com.example.talk_with_doctor.Profile.class));
+                        finish();
+                        overridePendingTransition(0, 0);
                         return true;
-
                 }
 
                 return false;
