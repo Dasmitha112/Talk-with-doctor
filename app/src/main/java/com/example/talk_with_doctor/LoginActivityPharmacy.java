@@ -31,7 +31,7 @@ public class LoginActivityPharmacy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_pharmacy);
 
-        btnSignup=findViewById(R.id.signupPha);
+        btnSignup=findViewById(R.id.signupDoc);
         btnLogin=findViewById(R.id.loginPha);
         editTxtName=findViewById(R.id.usernamePha);
         editTxtPassword=findViewById(R.id.passwordPha);

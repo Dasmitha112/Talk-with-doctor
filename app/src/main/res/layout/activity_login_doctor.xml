@@ -40,6 +40,35 @@
         app:layout_constraintTop_toTopOf="@+id/guideline4"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/doclogtxt"
+        android:layout_width="195dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/yetRegister"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/signupDoc"
+        android:layout_width="105dp"
+        android:layout_height="36dp"
+        android:background="#FDF6F6"
+        android:text="@string/signup"
+        android:textAllCaps="false"
+        android:textColor="#009688"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doclogtxt"
+        app:layout_constraintVertical_bias="0.0" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"

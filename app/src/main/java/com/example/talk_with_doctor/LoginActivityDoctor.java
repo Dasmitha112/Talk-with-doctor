@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivityDoctor extends AppCompatActivity {
 
-    private Button btnLogin;
+    private Button btnLogin,btnSignup;
     private EditText editTxtName, editTxtPassword;
     DatabaseReference dbRef;
 
@@ -31,11 +31,19 @@ public class LoginActivityDoctor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_doctor);
 
+        btnSignup=findViewById(R.id.signupDoc);
         btnLogin = findViewById(R.id.btnLoginDoc);
         editTxtName  = findViewById(R.id.NameDocLog);
         editTxtPassword = findViewById(R.id.PasswordDocLog);
 
 
+        btnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(LoginActivityDoctor.this, requestEmail.class);
+                startActivity(intent);
+            }
+        });
         //Login activity
         dbRef= FirebaseDatabase.getInstance().getReference().child("Doctor");
 

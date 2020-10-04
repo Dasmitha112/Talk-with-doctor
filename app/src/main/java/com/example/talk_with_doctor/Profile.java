@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -97,6 +98,23 @@ public class Profile extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                             try {
+                                if (TextUtils.isEmpty(TxtId.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter ID", Toast.LENGTH_SHORT).show();
+                                else if(TextUtils.isEmpty(TxtName.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter Name", Toast.LENGTH_SHORT).show();
+                                else if(TextUtils.isEmpty(TxtHos.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter Hospital", Toast.LENGTH_SHORT).show();
+                                else if(TextUtils.isEmpty(TxtMobile.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter Mobile Number", Toast.LENGTH_SHORT).show();
+                                else if(TextUtils.isEmpty(TxtSpeci.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter Specialization", Toast.LENGTH_SHORT).show();
+                                else if(TextUtils.isEmpty(TxtEmail.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter E-mail", Toast.LENGTH_SHORT).show();
+                                else if(TextUtils.isEmpty(TxtPass.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter Password", Toast.LENGTH_SHORT).show();
+                                else if(TextUtils.isEmpty(TxtDateTime.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter Time and Date", Toast.LENGTH_SHORT).show();
+                                else {
                                 doctor.setID(TxtId.getText().toString().trim());
                                 doctor.setName(TxtName.getText().toString().trim());
                                 doctor.setHospital(TxtHos.getText().toString().trim());
@@ -111,6 +129,7 @@ public class Profile extends AppCompatActivity {
 //                                clearControls();
 
                                 Toast.makeText(getApplicationContext(), "Data Update Successfully", Toast.LENGTH_SHORT).show();
+                            }
                             } catch (NumberFormatException e) {
                                 Toast.makeText(getApplicationContext(), "Invalid Contact Number", Toast.LENGTH_SHORT).show();
                             }
