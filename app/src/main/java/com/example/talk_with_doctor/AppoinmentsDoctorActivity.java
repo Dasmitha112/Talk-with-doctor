@@ -93,7 +93,7 @@ public class AppoinmentsDoctorActivity extends AppCompatActivity {
                         .setQuery(databaseReference.orderByChild("doctorName").equalTo(docname), Appointment.class)
                         .build();
 
-        //retrieve Appoinments
+        //retrieve names
         FirebaseRecyclerAdapter<Appointment, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Appointment, ViewHolder>(options) {
                     @Override

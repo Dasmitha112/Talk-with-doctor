@@ -74,14 +74,14 @@ public class HomeDoctorActivity extends AppCompatActivity {
                 MyAppoinments();
             }
         });
-        notifications = (Button) findViewById(R.id.Notification);
-        notifications.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                notifications();
-            }
-
-        });
+//        notifications = (Button) findViewById(R.id.Notification);
+//        notifications.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                notifications();
+//            }
+//
+//        });
 
         Intent intent= getIntent();
         docname = intent.getStringExtra("docname");

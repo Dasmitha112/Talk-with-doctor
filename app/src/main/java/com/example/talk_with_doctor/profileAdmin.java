@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class profileAdmin extends AppCompatActivity {
 
+    //creating objects
     EditText editTxtId, editTxtName, editTxtEmail, editTxtPassword;
     Button btnUpdate;
     DatabaseReference dbRef;
@@ -31,6 +32,7 @@ public class profileAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_admin);
 
+        //refering xml file's id's
         editTxtId = findViewById(R.id.editTxtId);
         editTxtName = findViewById(R.id.editTxtName);
         editTxtEmail = findViewById(R.id.editTxtEmail);
@@ -40,6 +42,7 @@ public class profileAdmin extends AppCompatActivity {
 
         adm = new Admin();
 
+        //Navigation bar
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.profile);
 
@@ -70,11 +73,11 @@ public class profileAdmin extends AppCompatActivity {
         });
 
 
-        //Update
+        //Update function
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference upRef = FirebaseDatabase.getInstance().getReference().child("Admin").child("adm1");
+                DatabaseReference upRef = FirebaseDatabase.getInstance().getReference().child("Admin").child("adm1");       //refering record in db
                 upRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -85,7 +88,7 @@ public class profileAdmin extends AppCompatActivity {
                                 adm.setPassword(editTxtPassword.getText().toString().trim());
 
                                 dbRef = FirebaseDatabase.getInstance().getReference().child("Admin").child("adm1");
-                                dbRef.setValue(adm);
+                                dbRef.setValue(adm);        //update relavant values in db updated by user
 
                                 Toast.makeText(getApplicationContext(), "Data updated successfully", Toast.LENGTH_SHORT).show();
                     }
@@ -106,8 +109,8 @@ public class profileAdmin extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        //Retrieve
-        dbRef = FirebaseDatabase.getInstance().getReference().child("Admin").child("adm1");
+        //Retrieve function
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Admin").child("adm1");     //refering record in db
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

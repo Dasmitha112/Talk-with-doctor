@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class addDoctor extends AppCompatActivity {
 
+    //creating objects
     EditText editTxtId, editTxtName, editTxtPassword, editTxtMobile, editTxtEmail, editTxtCategory, editTxtHospital, editTxtDateTime;
     Button btnAdd;
     DatabaseReference dbRef;
@@ -30,6 +31,7 @@ public class addDoctor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_doctor);
 
+        //refering xml file's id's
         editTxtId = findViewById(R.id.editTxtId);
         editTxtName = findViewById(R.id.editTxtName);
         editTxtPassword = findViewById(R.id.editTxtPassword);
@@ -57,6 +59,8 @@ public class addDoctor extends AppCompatActivity {
                 }
 
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Doctor");
+
+                //validate whether user has entered all the fields
                 try{
                     if(TextUtils.isEmpty(editTxtId.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter ID", Toast.LENGTH_SHORT).show();
@@ -84,7 +88,7 @@ public class addDoctor extends AppCompatActivity {
                         doc.setHospital(editTxtHospital.getText().toString().trim());
                         doc.setDateTime(editTxtDateTime.getText().toString().trim());
 
-                        dbRef.child(doc.getName()).setValue(doc);
+                        dbRef.child(doc.getName()).setValue(doc);       //creating record in db using the relevant doctor's name
 
                         Toast.makeText(getApplicationContext(), "Data saved successfully", Toast.LENGTH_SHORT).show();
                         clearControls();
@@ -95,6 +99,7 @@ public class addDoctor extends AppCompatActivity {
             }
         });
 
+        //Navigation bar
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.profile);
 
@@ -128,6 +133,7 @@ public class addDoctor extends AppCompatActivity {
         });
     }
 
+    //clearing all the fields
     private void clearControls(){
         editTxtId.setText("");
         editTxtName.setText("");

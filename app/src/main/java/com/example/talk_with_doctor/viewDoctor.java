@@ -32,6 +32,7 @@ import java.util.List;
 
 public class viewDoctor extends AppCompatActivity  {
 
+    //creating objects
     DatabaseReference databaseReference;
     RecyclerView recyclerView;
     FirebaseDatabase firebaseDatabase;
@@ -45,13 +46,16 @@ public class viewDoctor extends AppCompatActivity  {
         setContentView(R.layout.activity_view_doctor);
 
         doctor = new Doctor();
+
+        //initializing recycler view
         recyclerView = findViewById(R.id.recyclerviewDoctor);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        databaseReference = firebaseDatabase.getInstance().getReference().child("Doctor");
+        databaseReference = firebaseDatabase.getInstance().getReference().child("Doctor");      //refering record in db
 
 
+        //Navigation bar
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.profile);
 
@@ -97,6 +101,8 @@ public class viewDoctor extends AppCompatActivity  {
         //retrieve names
         FirebaseRecyclerAdapter<Doctor, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Doctor, ViewHolder>(options) {
+
+                    //refering to viewHolder
                     @Override
                     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Doctor model) {
                         holder.setData(getApplicationContext(), model.getID(), model.getName(), model.getPassword(), model.getMobile(),
@@ -105,7 +111,7 @@ public class viewDoctor extends AppCompatActivity  {
                         holder.setOnClickListener(new ViewHolder.Clicklistener() {
                             @Override
                             public void onItemlongClick(View view, int position) {
-                                id = getItem(position).getID();
+                                id = getItem(position).getID();     //refering to id of that particular position
 
                                 showDeleteDataDialog(id);
                             }
@@ -126,6 +132,7 @@ public class viewDoctor extends AppCompatActivity  {
 
     }
 
+    //delete function
     private void showDeleteDataDialog(String id){
 
         AlertDialog.Builder builder = new AlertDialog.Builder(viewDoctor.this);
@@ -141,7 +148,7 @@ public class viewDoctor extends AppCompatActivity  {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot ds : dataSnapshot.getChildren()){
-                            ds.getRef().removeValue();
+                            ds.getRef().removeValue();      //deleting value from db
                         }
                         Toast.makeText(viewDoctor.this, "Data successfully Deleted!", Toast.LENGTH_SHORT).show();
                     }

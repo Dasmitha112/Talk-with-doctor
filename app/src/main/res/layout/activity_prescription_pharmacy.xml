@@ -21,14 +21,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="188dp" />
+            app:layout_constraintGuide_begin="158dp" />
 
         <TextView
             android:id="@+id/textView9"
@@ -60,19 +62,6 @@
             app:layout_constraintVertical_bias="0.233" />
 
 
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            android:iconifiedByDefault="false"
-            android:queryBackground="@color/light_grey_table"
-            android:queryHint="Search"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline19" />
-
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
@@ -85,12 +74,10 @@
             tools:ignore="ExtraText">
 
 
-
-
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewMedicineOrder"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/recyclerviewMedicineOrder"
 
                 />
 
@@ -356,7 +343,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="248dp" />
+            app:layout_constraintGuide_begin="67dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline18"

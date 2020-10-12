@@ -13,8 +13,9 @@ import android.widget.TextView;
 
 public class introduction extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN = 5000;
+    private static int SPLASH_SCREEN = 5000;    //initializing delay time in miliseconds
 
+    //creating objects
     Animation topAnim, bottomAnim;
     ImageView image;
     TextView txtLogo;
@@ -25,15 +26,19 @@ public class introduction extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_introduction);
 
+        //refering to topAnim and bottomAnim in res folder
         topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
+        //refering xml file's id's
         image = findViewById(R.id.imgIntroLogo);
         txtLogo = findViewById(R.id.txtTalkWithDoctor);
 
+        //setting the animations
         image.setAnimation(topAnim);
         txtLogo.setAnimation(bottomAnim);
 
+        //next intent launcher
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

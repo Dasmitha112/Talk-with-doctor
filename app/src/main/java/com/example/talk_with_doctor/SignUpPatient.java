@@ -74,7 +74,7 @@ public class SignUpPatient extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Please enter Password", Toast.LENGTH_SHORT).show();
                     else if (textPassword.length() < 6)
                         textPassword.setError("Password must be more than 6 characters");
-
+                    else {
                         pt.setName(textName.getText().toString().trim());
                         pt.setEmail(textEmail.getText().toString().trim());
                         pt.setUsername(textUsername.getText().toString().trim());
@@ -94,6 +94,7 @@ public class SignUpPatient extends AppCompatActivity {
                                 clearControls();
                             }
                         });
+                    }
 
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid contact number", Toast.LENGTH_SHORT).show();

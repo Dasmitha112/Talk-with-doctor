@@ -108,7 +108,7 @@ public class profilePatient extends AppCompatActivity {
                             dbRef = FirebaseDatabase.getInstance().getReference().child("Patient").child(username);
                             dbRef.setValue(pt);
 
-                            Toast.makeText(profilePatient.this,"Your profile updated successfully",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Your profile updated successfully",Toast.LENGTH_SHORT).show();
                         }
                     }
 

@@ -15,6 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class homeAdmin extends AppCompatActivity {
 
+    //creating objects
     Button btnDoctor, btnPharmacy, btnViewPatientHome, btnViewDoctorHome, btnViewPharmacyHome;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -23,12 +24,14 @@ public class homeAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_admin);
 
+        //refering xml file's id's
         btnDoctor = findViewById(R.id.btnAddDoctor);
         btnPharmacy = findViewById(R.id.btnAddPharmacy);
         btnViewPatientHome = findViewById(R.id.btnViewPatient);
         btnViewDoctorHome = findViewById(R.id.btnViewDoctor);
         btnViewPharmacyHome = findViewById(R.id.btnViewPharmacy);
 
+        //All intents
         btnDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +69,7 @@ public class homeAdmin extends AppCompatActivity {
         });
 
 
-
+        //Navigation bar
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 

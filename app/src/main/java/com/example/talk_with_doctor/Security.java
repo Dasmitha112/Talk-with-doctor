@@ -36,7 +36,7 @@ public class Security {
 
     }
 
-
+    //new key generator
     private static Key generateKey() throws Exception
     {
         Key key = new SecretKeySpec(Security.KEY.getBytes(), Security.ALGORITHM);

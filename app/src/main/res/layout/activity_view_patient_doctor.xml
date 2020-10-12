@@ -52,17 +52,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <SearchView
-            android:id="@+id/SearchPatient"
-            android:layout_width="372dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:background="#E8E8E8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline8" />
-
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -306,7 +295,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="222dp" />
+            app:layout_constraintGuide_begin="171dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>

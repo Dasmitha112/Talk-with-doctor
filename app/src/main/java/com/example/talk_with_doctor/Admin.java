@@ -6,9 +6,11 @@ public class Admin {
     private String email;
     private String password;
 
+    //constructor
     public Admin() {
     }
 
+    //overloaded constructor
     public Admin(String ID, String name, String email, String password) {
         this.ID = ID;
         this.name = name;
@@ -16,6 +18,7 @@ public class Admin {
         this.password = password;
     }
 
+    //getters and setters
     public String getID() {
         return ID;
     }

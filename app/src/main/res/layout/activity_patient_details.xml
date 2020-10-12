@@ -166,7 +166,7 @@
         <EditText
             android:id="@+id/pName"
             android:layout_width="209dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
@@ -181,7 +181,7 @@
         <EditText
             android:id="@+id/pAge"
             android:layout_width="209dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
@@ -196,7 +196,7 @@
         <EditText
             android:id="@+id/pPhone"
             android:layout_width="209dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
@@ -211,7 +211,7 @@
         <EditText
             android:id="@+id/pEmail"
             android:layout_width="209dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
@@ -226,7 +226,7 @@
         <EditText
             android:id="@+id/pId"
             android:layout_width="209dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"

@@ -18,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class addPharmacy extends AppCompatActivity {
 
+    //creating objects
     EditText editTxtId, editTxtName, editTxtPassword, editTxtMobile, editTxtEmail, editTxtAddress, editTxtCity;
     Button btnAdd;
     DatabaseReference dbRef;
@@ -28,6 +29,7 @@ public class addPharmacy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_pharmacy);
 
+        //refering xml file's id's
         editTxtId = findViewById(R.id.editTxtId);
         editTxtName = findViewById(R.id.editTxtName);
         editTxtPassword = findViewById(R.id.editTxtPassword);
@@ -55,6 +57,8 @@ public class addPharmacy extends AppCompatActivity {
                 }
 
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Pharmacy");
+
+                //validate whether user has entered all the fields
                 try{
                     if(TextUtils.isEmpty(editTxtId.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter ID", Toast.LENGTH_SHORT).show();
@@ -79,7 +83,7 @@ public class addPharmacy extends AppCompatActivity {
                         pha.setAddress(editTxtAddress.getText().toString().trim());
                         pha.setCity(editTxtCity.getText().toString().trim());
 
-                        dbRef.child(pha.getName()).setValue(pha);
+                        dbRef.child(pha.getName()).setValue(pha);       //creating record in db using the relevant pharmacy's name
 
                         Toast.makeText(getApplicationContext(), "Data saved successfully", Toast.LENGTH_SHORT).show();
                         clearControls();
@@ -90,6 +94,7 @@ public class addPharmacy extends AppCompatActivity {
             }
         });
 
+        //Navigation bar
         BottomNavigationView bottomNavigationView = (BottomNavigationView)findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.profile);
 
@@ -123,6 +128,7 @@ public class addPharmacy extends AppCompatActivity {
         });
     }
 
+    //clearing all the fields
     private void clearControls(){
         editTxtId.setText("");
         editTxtName.setText("");

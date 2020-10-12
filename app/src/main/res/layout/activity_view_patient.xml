@@ -21,7 +21,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
         <TextView
             android:id="@+id/txtViewPatientProfile"
@@ -61,18 +63,6 @@
             app:layout_constraintVertical_bias="0.2"
             tools:layout_editor_absoluteX="0dp">
 
-            <SearchView
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:iconifiedByDefault="false"
-                android:queryBackground="@color/light_grey_table"
-                android:queryHint="@string/txtSearch"
-                >
-
-            </SearchView>
-
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
@@ -85,9 +75,9 @@
 
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerviewPatient"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/recyclerviewPatient"/>
+                    android:layout_height="match_parent" />
             </LinearLayout>
 
 
@@ -105,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="151dp" />
+            app:layout_constraintGuide_begin="165dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

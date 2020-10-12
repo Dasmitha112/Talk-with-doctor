@@ -12,6 +12,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+    //creating objects
     private CardView patientCard, doctorCard, pharmacyCard, adminCard;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -20,11 +21,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //refering xml file's id's
         patientCard = (CardView) findViewById(R.id.generalPatient);
         doctorCard = (CardView) findViewById(R.id.generalDoctor);
         pharmacyCard = (CardView) findViewById(R.id.generalPharmacy);
         adminCard = (CardView) findViewById(R.id.generalAdmin);
 
+        //setting onclickListener function to all CardViews
         patientCard.setOnClickListener(this);
         doctorCard.setOnClickListener(this);
         pharmacyCard.setOnClickListener(this);
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         Intent i;
+
+        //All intents
         switch (view.getId()){
 
             case R.id.generalPatient:

@@ -18,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivityAdmin extends AppCompatActivity {
 
+    //creating objects
     private Button btnLogin;
     private EditText editTxtEmail, editTxtPassword;
     DatabaseReference dbRef;
@@ -27,12 +28,13 @@ public class LoginActivityAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_admin);
 
+        //refering xml file's id's
         btnLogin = findViewById(R.id.btnLoginDoc);
         editTxtEmail  = findViewById(R.id.NameDocLog);
         editTxtPassword = findViewById(R.id.PasswordDocLog);
 
-        //Login activity
 
+        //Login activity
         dbRef= FirebaseDatabase.getInstance().getReference().child("Admin");
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -44,10 +46,12 @@ public class LoginActivityAdmin extends AppCompatActivity {
 
 
 
-                dbRef.child("adm1").addValueEventListener(new ValueEventListener() {
+                dbRef.child("adm1").addValueEventListener(new ValueEventListener() {        //refering record in db
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         Admin admin = snapshot.getValue(Admin.class);
+
+                        //comparing user entered values with db values
                         if(pw.equals(admin.getPassword()) && email.equals(admin.getEmail()))
                         {
                             Toast.makeText(LoginActivityAdmin.this,"Login Successfull",Toast.LENGTH_SHORT).show();

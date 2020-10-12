@@ -27,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class viewPatient<firebaseRecyclerAdapter> extends AppCompatActivity {
 
+    //creating objects
     DatabaseReference databaseReference;
     RecyclerView recyclerView;
     FirebaseDatabase firebaseDatabase;
@@ -39,12 +40,15 @@ public class viewPatient<firebaseRecyclerAdapter> extends AppCompatActivity {
         setContentView(R.layout.activity_view_patient);
 
         patient = new Patient();
+
+        //initializing recycler view
         recyclerView = findViewById(R.id.recyclerviewPatient);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        databaseReference = firebaseDatabase.getInstance().getReference().child("Patient");
+        databaseReference = firebaseDatabase.getInstance().getReference().child("Patient");     //refering record in db
 
+        //Navigation bar
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
         bottomNavigationView.setSelectedItemId(R.id.profile);
 
@@ -91,7 +95,7 @@ public class viewPatient<firebaseRecyclerAdapter> extends AppCompatActivity {
         FirebaseRecyclerAdapter<Patient, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Patient, ViewHolder>(options) {
 
-
+                    //refering to viewHolder
                     @Override
                     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Patient model) {
                         holder.setPatientData(getApplicationContext(), model.getName(), model.getEmail(),
@@ -100,7 +104,7 @@ public class viewPatient<firebaseRecyclerAdapter> extends AppCompatActivity {
                         holder.setOnClickListener(new ViewHolder.Clicklistener() {
                             @Override
                             public void onItemlongClick(View view, int position) {
-                                id = getItem(position).getUsername();
+                                id = getItem(position).getUsername();       //refering to name of that particular position
 
                                 showDeleteDataDialog(id);
                             }
@@ -125,7 +129,7 @@ public class viewPatient<firebaseRecyclerAdapter> extends AppCompatActivity {
 
 
 
-
+    //delete function
         private void showDeleteDataDialog(String id){
 
             AlertDialog.Builder builder = new AlertDialog.Builder(viewPatient.this);
@@ -142,7 +146,7 @@ public class viewPatient<firebaseRecyclerAdapter> extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             for (DataSnapshot ds : dataSnapshot.getChildren()){
-                                ds.getRef().removeValue();
+                                ds.getRef().removeValue();      //deleting value from db
                             }
                             Toast.makeText(viewPatient.this, "Data successfully Deleted!", Toast.LENGTH_SHORT).show();
                         }
